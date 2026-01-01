@@ -1,1 +1,1 @@
-# frontend-capstone-team-1
+# Frontend Capstone Project
