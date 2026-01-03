@@ -1,0 +1,206 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(252, 244, 236, 1);
+}
+
+body {
+  padding-top: 70px;
+}
+
+nav[aria-label="Primary site navigation"] {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#LOGO {
+  display: block;
+  width: 56px;      /* הגדלה במובייל */
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ---- Right actions (cart + moon) ---- */
+.nav-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 10px;
+
+  width: auto;
+  height: auto;
+
+  border: none;       
+  background: none;       
+  padding: 0;          
+}
+
+.cart-btn img {
+   width: 45px;         /* <-- תעלי ל-36/40 אם בא לך */
+  height: 34px;
+  display: block;
+}
+
+#dark-mode-toggle {
+  border: none;
+  background: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#dark-mode-toggle img {
+  width: 50px;     /* גודל הירח עצמו */
+  height: 28px;
+  object-fit: contain;  /* לא יימעך */
+  display: block;
+}
+
+/* ---- Links list ---- */
+#nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex: 1;
+}
+
+#nav li {
+  display: flex;
+  align-items: center;
+}
+
+#nav a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  line-height: 1;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+#dark-mode-toggle:hover,
+.cart-btn:hover,
+.hamburger:hover,
+#dark-mode-toggle:focus-visible,
+.cart-btn:focus-visible,
+.hamburger:focus-visible {
+  background: rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+
+/* ---- Hamburger (hidden on desktop) ---- */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hamburger {
+   display: none;            /* נשאר כמו אצלך: רק במובייל */
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  border-radius: 10px;
+
+  border: none;             /* בלי מסגרת */
+  background: none;         /* בלי רקע */
+  padding: 0;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #222;
+  display: block;
+}
+
+/* ---- Mobile: turn links into dropdown panel ---- */
+@media (max-width: 760px) {
+  /* Show hamburger */
+  .hamburger {
+    display: inline-flex;
+  }
+
+  /* Hide links by default */
+  #nav {
+    display: none;
+
+       position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;      /* נצמד לתחתית ה-nav */
+    margin-top: 0;  /* לוודא שאין רווח */
+    
+    background: rgba(252, 244, 236, 1);
+    padding: 10px 12px 14px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+
+    
+  }
+
+  /* When checkbox is checked -> show menu */
+  #nav-toggle:checked ~ #nav {
+    display: flex;
+  }
+}
+
+/* Desktop upgrade */
+@media (min-width: 761px) {
+  nav[aria-label="Primary site navigation"] {
+    padding: 12px 16px;
+    gap: 14px;
+  }
+
+  #LOGO {
+    width: 70px;
+  }
+
+  #nav a {
+    font-size: 18px;
+    padding: 12px 12px;
+  }
+
+  .cart-btn,
+  #dark-mode-toggle {
+    width: 42px;
+    height: 42px;
+  }
+}
