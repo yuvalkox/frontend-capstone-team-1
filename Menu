@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>
+    <header>
+   <nav aria-label="Primary site navigation">
+    <img id="LOGO" class="" src="/LOGO.png" alt="LOGO" width="50">
+   
+
+    <ul id="nav" class="nav"  aria-label="Main pages">
+      <li><a id="home-link" href="/" title="Go to the homepage">Home</a></li>
+      <li><a id="menu-link" href="/menu" title="Browse the food menu">Menu</a></li>
+      <li><a id="cart-link" href="/cart" title="View your shopping cart">Cart</a></li>
+      <li><a id="about-link" href="/about" title="Learn more about us">About</a></li>
+      <li><a id="contact-link" href="/contact" title="Get in touch with us">Contact</a></li>
+      <li><a id="kitchen-link" href="/kitchen" title="Kitchen dashboard (staff only)">Kitchen</a></li>
+    </ul>
+     <button type="button" aria-label="Enable dark mode" title="Dark mode" id="dark-mode-toggle">
+      <span aria-hidden="true">🌙</span>
+    </button>
+  </nav>
+    </header>
+</body>
+</html>
