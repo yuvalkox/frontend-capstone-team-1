@@ -23,21 +23,21 @@
    
     <ul id="nav" class="nav" aria-label="Main pages">
       <li><a id="home-link" href="/" title="Go to the homepage">Home</a></li>
-      <li><a id="menu-link" href="/menu" title="Browse the food menu">Menu</a></li>
-      <li><a id="about-link" href="/about" title="Learn more about us">About</a></li>
-      <li><a id="contact-link" href="/contact" title="Get in touch with us">Contact</a></li>
-      <li><a id="kitchen-link" class="staff-link" href="/kitchen" title="Kitchen dashboard (staff only)">
+      <li><a id="menu-link" href="/Menu" title="Browse the food menu">Menu</a></li>
+      <li><a id="about-link" href="/About" title="Learn more about us">About</a></li>
+      <li><a id="contact-link" href="/Contact" title="Get in touch with us">Contact</a></li>
+      <li><a id="kitchen-link" class="staff-link" href="/Kitchen" title="Kitchen dashboard (staff only)">
     Kitchen </a> </li>
     </ul>
 
     
     <div class="nav-actions">
       <a id="cart-link" class="cart-btn" href="/cart" aria-label="View cart" title="Cart">
-        <img src="https://www.folyou.co.il/f-users/user_100734/website_108974/images/thumbs/W_960_sell-online.png" alt="" aria-hidden="true" >
+        <img src="https://www.folyou.co.il/f-users/user_100734/website_108974/images/thumbs/W_960_sell-online.png" alt="picture of cart" aria-hidden="true" >
       </a>
 
         <button type="button" aria-label="Enable dark mode" title="Dark mode" id="dark-mode-toggle">
-            <img src="./תמונות/image.png" alt="" aria-hidden="true" width="28" height="28">
+            <img src="./תמונות/image.png" alt="picture of dark mode toggle" aria-hidden="true" width="28" height="28">
         </button>
     </div>
   </nav>

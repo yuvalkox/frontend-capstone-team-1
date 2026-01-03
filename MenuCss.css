@@ -4,6 +4,7 @@ header {
   width: 100%;
   z-index: 1000;
   background: rgba(252, 244, 236, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 body {
@@ -39,7 +40,7 @@ nav[aria-label="Primary site navigation"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 6px; 
   border-radius: 10px;
 
   width: auto;
@@ -47,7 +48,7 @@ nav[aria-label="Primary site navigation"] {
 
   border: none;       
   background: none;       
-  padding: 0;          
+           
 }
 
 .cart-btn img {
@@ -61,7 +62,6 @@ nav[aria-label="Primary site navigation"] {
   background: none;
   width: 40px;
   height: 40px;
-  padding: 0;
   cursor: pointer;
   padding: 6px;
   border-radius: 10px;
@@ -70,8 +70,9 @@ nav[aria-label="Primary site navigation"] {
   align-items: center;
   justify-content: center;
 }
+
 #dark-mode-toggle img {
-  width: 50px;     
+  width: 40px;     
   height: 28px;
   object-fit: contain;  
   display: block;
@@ -79,15 +80,24 @@ nav[aria-label="Primary site navigation"] {
 
 
 #nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    display: none;
 
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;      
+    margin-top: 0;  
+    
+    background: rgba(252, 244, 236, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-  flex: 1;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+
+    list-style: none;
+    margin: 0;
+   padding: 10px 12px 14px 12px;
 }
 
 #nav li {
@@ -111,12 +121,15 @@ nav[aria-label="Primary site navigation"] {
 .cart-btn:focus-visible,
 .hamburger:focus-visible {
   background: rgba(0, 0, 0, 0.06);
-  outline: none;
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 2px;
 }
+
 #nav a:hover,
 #nav a:focus-visible {
   background: rgba(0, 0, 0, 0.06);
-  outline: none;
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 2px;
 }
 
 #kitchen-link {
@@ -135,7 +148,11 @@ nav[aria-label="Primary site navigation"] {
   background: rgba(0, 0, 0, 0.03);
   outline: none;
 }
-
+#kitchen-link::after {
+  content: " (staff)";
+  font-size: 12px;
+  opacity: 0.7;
+}
 
 
 .nav-toggle {
@@ -145,7 +162,7 @@ nav[aria-label="Primary site navigation"] {
 }
 
 .hamburger {
-   display: none;          
+  display: inline-flex;         
   width: 40px;
   height: 40px;
   padding: 6px;
@@ -153,7 +170,7 @@ nav[aria-label="Primary site navigation"] {
 
   border: none;             
   background: none;        
-  padding: 0;
+  
 
   align-items: center;
   justify-content: center;
@@ -170,39 +187,10 @@ nav[aria-label="Primary site navigation"] {
   display: block;
 }
 
-
-@media (max-width: 760px) {
-  
-  .hamburger {
-    display: inline-flex;
-  }
-
- 
-  #nav {
-    display: none;
-
-       position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;      
-    margin-top: 0;  
-    
-    background: rgba(252, 244, 236, 1);
-    padding: 10px 12px 14px 12px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-
-    
-  }
-
-  
-  #nav-toggle:checked ~ #nav {
+#nav-toggle:checked ~ #nav {
     display: flex;
   }
-}
+ 
 
 
 @media (min-width: 761px) {
@@ -224,5 +212,23 @@ nav[aria-label="Primary site navigation"] {
   #dark-mode-toggle {
     width: 42px;
     height: 42px;
+  }
+  .hamburger { 
+    display: none; 
+  }
+
+  #nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    background: transparent;
+    padding: 0;
+    border-bottom: none;
+
+    list-style: none;
+    margin: 0;
   }
 }
