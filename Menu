@@ -12,7 +12,7 @@
    <nav aria-label="Primary site navigation">
     <img id="LOGO" src="/LOGO.png" alt="LOGO" width="50">
 
-    <!-- Hamburger toggle (no JS) -->
+    
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
     <label for="nav-toggle" class="hamburger" aria-label="Open menu" title="Menu">
       <span></span>
@@ -20,7 +20,7 @@
       <span></span>
     </label>
 
-    <!-- Main links (WITHOUT cart) -->
+   
     <ul id="nav" class="nav" aria-label="Main pages">
       <li><a id="home-link" href="/" title="Go to the homepage">Home</a></li>
       <li><a id="menu-link" href="/menu" title="Browse the food menu">Menu</a></li>
@@ -30,7 +30,7 @@
     Kitchen </a> </li>
     </ul>
 
-    <!-- Right side actions -->
+    
     <div class="nav-actions">
       <a id="cart-link" class="cart-btn" href="/cart" aria-label="View cart" title="Cart">
         <img src="https://www.folyou.co.il/f-users/user_100734/website_108974/images/thumbs/W_960_sell-online.png" alt="" aria-hidden="true" >
