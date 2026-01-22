@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>הזמנת מקום - YOLI</title>
+    <link rel="stylesheet" href="TableBooking.css">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="booking-page">
+
+    <header class="header">
+        <a href="#" class="back">← חזרה</a>
+        <h1>הזמנת מקום</h1>
+        <p>שריינו לכם מקום במסעדה - אנחנו כבר מחכים</p>
+    </header>
+
+    <main class="card">
+        <form id="reservationForm">
+            <section class="section">
+                <div class="step-title">
+                    <span class="step">1</span>
+                    <h2>פרטים אישיים</h2>
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>שם מלא *</label>
+                        <input type="text" id="name" placeholder="הזן שם מלא" required>
+                    </div>
+                    <div class="field">
+                        <label>טלפון *</label>
+                        <input type="text" id="phone" placeholder="0500000000" required>
+                        <span id="phoneError" class="field-error"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>אימייל (אופציונלי)</label>
+                    <input type="email" id="email" placeholder="example@gmail.com">
+                    <span id="emailError" class="field-error"></span>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="step-title">
+                    <span class="step">2</span>
+                    <h2>פרטי ההזמנה</h2>
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>תאריך *</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="field">
+                        <label>שעה *</label>
+                        <select id="time" required disabled>
+                            <option value="" disabled selected>בחר שעת הגעה</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>מספר סועדים *</label>
+                        <select id="guests" required>
+                            <option value="" disabled selected>בחר מספר סועדים</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10+">10+</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>אזור ישיבה *</label>
+                        <select id="area" required>
+                            <option value="" disabled selected>בחר אזור ישיבה</option>
+                            <option value="בפנים">בפנים</option>
+                            <option value="בר">בר</option>
+                            <option value="מרפסת">מרפסת</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>הערות והעדפות</label>
+                    <textarea id="notes" rows="2" placeholder="יש לכם הערות והעדפות מיוחדות?"></textarea>
+                </div>
+            </section>
+
+            <button type="submit" class="submit">שלח הזמנה</button>
+            <div id="message" class="message">
+                <p id="messageText"></p>
+                <button type="button" class="message-btn">אישור</button>
+            </div>
+        </form>
+
+        <div id="confirmationBox" class="confirmation-card" style="display: none;">
+            <i class="bi bi-calendar-check"></i>
+            <h2>הזמנתך למסעדת YOLI התקבלה בהצלחה!</h2>
+            <div class="summary-details">
+                <p><strong>שם:</strong> <span id="confName"></span></p>
+                <p><strong>תאריך:</strong> <span id="confDate"></span></p>
+                <p><strong>שעה:</strong> <span id="confTime"></span></p>
+                <p><strong>סועדים:</strong> <span id="confGuests"></span></p>
+                <p><strong>אזור:</strong> <span id="confArea"></span></p>
+            </div>
+            <button onclick="window.location.reload()" class="submit">ביצוע הזמנה חדשה</button>
+        </div>
+    </main>
+  <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>YOLI</h3>
+                <p>חוויה איטלקית כשרה בלב תל אביב</p>
+            </div>
+            <div>
+                <h4>צור קשר</h4>
+                <p>הרצל 123, תל אביב</p>
+                <p>03-1234567</p>
+                <p>info@yoli-restaurant.co.il</p>
+            </div>
+            <div>
+                <h4>שעות פתיחה</h4>
+                <p>ראשון–חמישי: 12:00-23:00</p>
+                <p>שישי: סגור</p>
+                <p>שבת: 20:00-00:00</p>
+            </div>
+            <div>
+                <h4>עקבו אחרינו</h4>
+                <div class="footer-social">
+                    <a href="#" aria-label="אינסטגרם"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="פייסבוק"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © YOLI - כל הזכויות שמורות
+        </div>
+    </footer>
+
+    <script src="TableBooking.js"></script>
+</body>
+</html>
