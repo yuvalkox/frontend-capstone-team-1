@@ -2,6 +2,9 @@
  box-sizing: border-box;
 }
 
+body{
+    font-family: 'assistant';
+}
 
 /*עריכת גודל הNAVBAR */
 header{
@@ -170,13 +173,16 @@ nav{
   width: auto;
 }
 
+#light-mode-toggle{ 
+  display: none; 
+}
 
 
 
 .ui-active{
-   background: rgba(255, 255, 255, 0.2);
-    outline: 2px solid rgba(220, 210, 190, 0.4);
-    outline-offset: 2px;
+   background: rgba(210, 100, 110, 0.4) !important;
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
 }
 
 
@@ -192,7 +198,13 @@ body.theme-dark #nav{
   
 }
 
+body.theme-dark #light-mode-toggle {
+  display: inline-flex;
+}
 
+body.theme-dark #dark-mode-toggle {
+  display: none;
+}
 
 body.theme-dark .cart-btn,
 body.theme-dark #dark-mode-toggle,
@@ -212,18 +224,10 @@ body.theme-dark .ui-active{
   outline-offset: 2px;
 }
 
-nav, #nav, #nav a{
-  font-family: "Assistant", sans-serif;
-}
-
-
-#light-mode-toggle{ display: none; }
-body.theme-dark #light-mode-toggle{ display: inline-flex; }
-body.theme-dark #dark-mode-toggle{ display: none; }
 
 body.theme-dark #nav a{
-  background: rgba(139, 44, 48, 0.85);  
-  border-color: rgba(255,255,255,0.18);
+  background: rgba(89, 22, 26, 1);
+  border-bottom-color: rgba(255,255,255,0.12);
   color: #f3f4f6;
 }
 
