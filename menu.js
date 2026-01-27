@@ -1,59 +1,39 @@
 
+// הגדרת משתנים למצב לילה/יום
 const body = document.body;
 const darkBtn = document.getElementById("dark-mode-toggle");
-//הפעלת מצב לילה
-if (darkBtn) {
-  const savedTheme = localStorage.getItem("yoli-theme");
-  if (savedTheme === "dark") {
-    body.classList.add("theme-dark");
-  }
+const lightBtn = document.getElementById("light-mode-toggle");
 
+// 
+const savedTheme = localStorage.getItem("yoli-theme");
+if (savedTheme === "dark") {
+  body.classList.add("theme-dark");
+} else {
+  body.classList.remove("theme-dark");
+}
+
+// לחיצה על מצב לילה
+if (darkBtn !== null) {
   darkBtn.addEventListener("click", function () {
-    const isDark = body.classList.toggle("theme-dark");
-
-    if (isDark) {
-      localStorage.setItem("yoli-theme", "dark");
-    } else {
-      localStorage.setItem("yoli-theme", "light");
-    }
+    body.classList.add("theme-dark");
+    localStorage.setItem("yoli-theme", "dark");
   });
 }
 
-
-const navToggle = document.getElementById("nav-toggle"); 
+// לחיצה על מצב יום
+if (lightBtn !== null) {
+  lightBtn.addEventListener("click", function () {
+    body.classList.remove("theme-dark");
+    localStorage.setItem("yoli-theme", "light");
+  });
+}
+//יצירת משתנים לתפריט להמבורגר
+const navToggle = document.getElementById("nav-toggle");
 const nav = document.getElementById("nav");
-const hamburger = document.querySelector('label.hamburger[for="nav-toggle"]');
+const hamburger = document.querySelector('.hamburger');
 
-// סגירת תפריט ניווט לאחר לחיצה על קישור או מחוץ לתפריט
-if (navToggle && nav) {
-  const links = nav.querySelectorAll("a");
-  for (let i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", function () {
-      navToggle.checked = false;
-    });
-  }
 
- 
- document.addEventListener("click", function (e) {
-    if (!navToggle.checked) return;
-    let node = e.target;
-    let clickedInside = false;
-
-    while (node) {
-      if (node === nav || node === hamburger || node === navToggle) {
-        clickedInside = true;
-        break;
-      }
-      node = node.parentElement;
-    }
-
-    if (!clickedInside) {
-      navToggle.checked = false;
-    }
-  });
-}
-
-// הוספת מחלקת ui-active לאלמנטים אינטראקטיביים
+// ריחוף והדגשה למצב פוקוס      
 function makeInteractive(el) {
   if (!el) return;
 
@@ -74,13 +54,51 @@ function makeInteractive(el) {
   });
 }
 
-makeInteractive(darkBtn);
+// מפעילים על כפתורים
+makeInteractive(document.getElementById("dark-mode-toggle"));
+makeInteractive(document.getElementById("light-mode-toggle"));
 makeInteractive(document.getElementById("cart-link"));
 makeInteractive(hamburger);
 
+// מפעילים על כל הקישורים בתפריט
 if (nav) {
   const navLinks = nav.querySelectorAll("a");
   for (let i = 0; i < navLinks.length; i++) {
     makeInteractive(navLinks[i]);
   }
 }
+
+// סגירה בלחיצה על קישור
+if (navToggle && nav) {
+  const links = nav.querySelectorAll("a");
+  for (let j = 0; j < links.length; j++) {
+    links[j].addEventListener("click", function () {
+      navToggle.checked = false;
+    });
+  }
+
+  // סגירה בלחיצה מחוץ לתפריט
+  document.addEventListener("click", function (e) {
+    if (!navToggle.checked) return;
+
+    let node = e.target;
+    let clickedInside = false;
+
+    while (node) {
+      if (node === nav || node === hamburger || node === navToggle) {
+        clickedInside = true;
+        break;
+      }
+      node = node.parentElement;
+    }
+
+    if (!clickedInside) {
+      navToggle.checked = false;
+ 
+    }
+  });
+}
+
+
+
+
