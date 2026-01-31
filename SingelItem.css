@@ -1,0 +1,273 @@
+* {
+ box-sizing: border-box;
+}
+
+body{
+    font-family: 'assistant';
+}
+
+/*עריכת גודל הNAVBAR */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(139, 44, 48, 1);
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+
+/*עריכת עיצוב הNAVBAR */
+nav{
+  max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;                
+}
+
+/*עיצוב הלוגו*/
+#LOGO{
+  width: 140px; 
+    height: auto;
+    display: block;
+}
+
+/*עיצוב האייקונים*/
+.nav-actions{
+   display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* עיצוב תפריט הניווט */
+.nav-right, .nav-left{
+  flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+.nav-left {
+    justify-content: flex-end;
+}
+
+.nav-center{
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1010;
+}
+
+/* עיצוב כפתורי הניווט */
+.cart-btn,
+#dark-mode-toggle,
+#light-mode-toggle,
+#nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* עיצוב כפתורי הניווט */
+.cart-btn,
+#dark-mode-toggle,
+#light-mode-toggle{
+  width: 42px;
+    padding: 0;
+}
+
+
+/* עיצוב קישורי הניווט */
+#nav-toggle:checked ~ #nav{
+  display: flex;
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+/* עיצוב התמונה של העגלה*/
+.cart-btn img{
+ width: 45px;
+    height: 34px;
+    display: block;
+    filter: invert(1);
+}
+
+/* עיצוב כפתורי מצב לילה/בהיר */
+#dark-mode-toggle img,
+#light-mode-toggle img{
+   width: 40px;
+    height: 28px;
+    display: block;
+    filter: invert(1);
+}
+
+
+/* המבורגר */
+.nav-toggle{
+  position: absolute;
+  display: none;
+}
+
+.hamburger{
+ display: flex;
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+
+.hamburger span{
+ width: 22px;
+    height: 2px;
+    background: white;
+    display: block;
+}
+
+/* עיצוב תפריט הניווט הנפתח במובייל */
+#nav{
+   display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 10px 12px 14px;
+    gap: 6px;
+    background: none;
+    z-index: 1050;
+    list-style: none;
+    margin: 0;
+}
+
+
+#nav li{
+   width: 100%;
+    text-align: right;
+}
+
+#nav a{
+  padding: 0 10px;
+  background: rgba(139, 44, 48, 0.9);
+  width: auto;
+}
+
+#light-mode-toggle{ 
+  display: none; 
+}
+
+
+
+.ui-active{
+   background: rgba(210, 100, 110, 0.4) !important;
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+
+/*עיצוב מצב לילה*/
+body.theme-dark header{
+  background: rgba(89, 22, 26, 1);
+  border-bottom-color: rgba(255,255,255,0.12);
+}
+
+body.theme-dark #nav{
+  background: rgba(21, 26, 32, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  
+}
+
+body.theme-dark #light-mode-toggle {
+  display: inline-flex;
+}
+
+body.theme-dark #dark-mode-toggle {
+  display: none;
+}
+
+body.theme-dark .cart-btn,
+body.theme-dark #dark-mode-toggle,
+body.theme-dark #light-mode-toggle,
+body.theme-dark .hamburger{
+  background:transparent;
+  border: none;
+}
+
+body.theme-dark .hamburger span{
+  background: #f3f4f6;
+}
+
+body.theme-dark .ui-active{
+  background: rgba(255, 255, 255, 0.16);
+  outline: 2px solid rgba(255,255,255,0.25);
+  outline-offset: 2px;
+}
+
+
+body.theme-dark #nav a{
+  background: rgba(89, 22, 26, 1);
+  border-bottom-color: rgba(255,255,255,0.12);
+  color: #f3f4f6;
+}
+
+
+/* עיצוה NAVBAR למסך גדול */
+@media (min-width: 1000px){
+  nav{
+    padding: 8px 14px;      
+    gap: 12px;
+  }
+
+  #LOGO{
+    max-width: 130px;
+  }
+
+  .hamburger{
+    display: none;            
+  }
+
+  #nav{
+    display: flex;            
+    position: static;
+
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    background: none;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  #nav a{
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 10px;
+  }
+  body.theme-dark #nav{
+    background: transparent;
+    border-bottom: none;
+  }
+
+}
