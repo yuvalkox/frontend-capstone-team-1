@@ -210,8 +210,8 @@ body.theme-dark .cart-btn,
 body.theme-dark #dark-mode-toggle,
 body.theme-dark #light-mode-toggle,
 body.theme-dark .hamburger{
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:transparent;
+  border: none;
 }
 
 body.theme-dark .hamburger span{

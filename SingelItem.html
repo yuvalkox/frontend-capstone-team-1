@@ -56,5 +56,97 @@
     </nav>
    
 </header>
+
+<main class="product-page">
+
+    <!--פירוט מנה + תמונה-->
+    <section class="product-header">
+        <div class="product-image">
+            <img src="/תמונות/סלט יווני.png" alt="סלט יווני מרענן" >
+        </div>
+            
+        <div class="info">
+            <div class="title-price-row">
+                <h1>סלט יווני מרענן</h1>
+                <p class="price" id="currentPrice" aria-label="42 שקלים">₪42</p>
+            </div>
+    
+            <p class="description">
+                 ירקות טריים מלפפון, עגבניות שרי במגוון צבעים, גמבה אדומה וצהובה, בצל סגול וזיתי קלמטה משובחים. 
+                 מוגש עם לחם, קוביות גבינת פטה, אורגנו ושמן זית איכותי.
+            </p>
+        </div>
+    </section>
+
+    <!--התאמה אישית-->
+    <section class="customization">
+        <h2>התאמה אישית</h2>
+        
+    
+        <div class="options">
+
+            <div class="options-item">
+                <label><input type="checkbox" name="no-cheese" checked> גבינת פטה</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" name="no-cucumber" checked> מלפפון</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" name="no-cherry-tomato" checked> עגבניות שרי</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" name="no-red-pepper" checked> גמבה אדומה</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" name="no-yellow-pepper" checked> גמבה צהובה</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" name="no-onion" checked> בצל סגול</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" name="no-olives" checked> זיתים</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" name="no-oregano" checked>אורגנו</label>
+            </div>
+
+            <div class="options-item special-change">
+                <label><input type="checkbox" name="sub-bulgarian"> החלפה לגבינה בולגרית</label>
+            </div>
+        </div>
+
+        <div class="options-group">
+            <h3>תוספות בתשלום:</h3>
+            <div class="options-item">
+                <label><input type="checkbox" value="tahini" data-price="6"> טחינה (₪6)</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" value="avocado" data-price="12"> אבוקדו (₪12)</label>
+            </div>
+            <div class="options-item">
+                <label><input type="checkbox" value="egg" data-price="7" > ביצה קשה (₪7)</label>
+            </div>
+        </div>
+    </section>
+
+    <!--הוספת כמות +הערות-->
+    <section class="actions">
+        <div class="quantity-selector">
+            <label for="quantity">כמות</label>
+            <input id="quantity" name="quantity" type="number" min="1" max="10" value="1">
+        </div>
+
+        <div class="notes-field">
+            <label for="other-info">הערות:</label>
+            <input type="text" id="other-info" name="other-info" placeholder="למשל: רוטב בצד...">
+        </div>
+    
+        <button class="add-to-cart-btn" aria-label="הוספת סלט לסל">
+             הוספה לסל <span id="btn-price">(₪42)</span>
+        </button>
+    </section>
+
+</main>
+
  <script src="/SingelItem.js" defer></script>
 </body>
