@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>lihi</h1>
-    
-</body>
-</html>
+# YOLI אתר מסעדה
+## תיאור המערכת
+: אתר תפריט למסעדה  שמציג קטגוריות, פריטים, מחירים ומידע נוסף בצורה נגישה ורספונסיבית.
+
+## טכנולוגיות
+- HTML5
+- CSS
+- JavaScript 
+- Git + GitHub
+- GitHub Pages (Deployment)
+
+## סיכום פיצ'רים
+- ניווט עליון (Navbar) עם תפריט המבורגר למובייל
+- עמוד/דפים: (Menu / Home / Contact וכו’)
+- מצב יום/לילה
+- עיצוב רספונסיבי (Mobile / Desktop)
+- נגישות בסיסית: aria-labels, alt לתמונות, ניווט מקלדת 
+## איך משתמשים באתר
+1. פותחים את דף הבית.
+2. משתמשים בתפריט העליון כדי לעבור בין הדפים.
+3. בדף התפריט ניתן לראות קטגוריות ומוצרים.
+4. במובייל ניתן לפתוח את התפריט בעזרת כפתור ההמבורגר.
+5. (dark mode) ניתן להחליף מצב תצוגה.
+## קישור לאתר חי

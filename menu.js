@@ -102,3 +102,16 @@ if (navToggle && nav) {
 
 
 
+// פוטר 
+const light = '#cbcbcaff'; 
+const white = '#ffffff';
+
+const footerIcons = document.querySelectorAll('.footer-social a');
+for (let k = 0; k < footerIcons.length; k++) {
+    footerIcons[k].addEventListener('mouseenter', function() {
+        this.style.color = light;
+    });
+    footerIcons[k].addEventListener('mouseleave', function() {
+        this.style.color = white;
+    });
+}
