@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תפריט-YOLI</title>
+
+  <!--קישורי CSS-->
+  <link rel="stylesheet" href="menu.css">
+
+  <!-- פונט של גוגל-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Rubik+Doodle+Shadow&family=Secular+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <!--ניווט עליון-->
+    <nav aria-label="ניווט ראשי באתר">
+      <div class="nav-center">
+        <img id="LOGO" src="/תמונות/לוגו.png" alt="לוגו YOLI" loading="lazy">
+      </div>
+
+      <!--המבורגר-->
+      <div class="nav-right">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="פתיחה וסגירה של התפריט">
+        <label for="nav-toggle" class="hamburger" aria-label="פתיחת תפריט" title="תפריט">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+
+        <!--רשימת קישורים-->
+        <ul id="nav" class="nav" aria-label="עמודים ראשיים">
+          <li><a id="home-link" href="/Home.html" title="מעבר לדף הבית">דף הבית</a></li>
+          <li><a id="about-link" href="/Odot.html#top" title="מידע עלינו">אודות</a></li>
+          <li><a id="menu-link" href="/Menu.html" title="צפייה בתפריט">תפריט</a></li>
+          <li><a id="reserve-link" href="/TableBooking.html" title="הזמנת מקום">הזמן מקום</a></li>
+          <li><a id="contact-link" href="/Odot.html#contact" title="יצירת קשר">צור קשר</a></li>
+        </ul>
+      </div>
+
+      <!--כפתורים-->
+      <div class="nav-left">
+        <div class="nav-actions">
+          <a id="cart-link" class="cart-btn" href="/Checkout.html" aria-label="צפייה בעגלה" title="עגלה">
+            <img src="/תמונות/עגלה.png" alt="" loading="lazy">
+          </a>
+
+          <button id="dark-mode-toggle" aria-label="החלפת מצב תצוגה">
+            <img class="dm-icon dm-light" src="/תמונות/מצב לילה.png" alt="מצב לילה" loading="lazy">
+          </button>
+
+          <button type="button" id="light-mode-toggle" aria-label="הפעלת מצב בהיר" title="מצב בהיר">
+            <img src="/תמונות/שמש.svg" alt="מצב יום" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!--תמונת פתיח של התפריט-->
+    <section class="menu-hero" aria-labelledby="menu-title">
+      <img class="menu-hero__bg" src="./תמונות/פסטה עגבניות.jpg" alt="" aria-hidden="true" />
+      <div class="menu-hero__content">
+        <h1 id="menu-title">תפריט</h1>
+      </div>
+    </section>
+
+    <!-- סינון מנות -->
+    <section class="menu-filters" aria-label="סינון מנות">
+      <fieldset class="filter-group">
+        <legend class="sr-only">סינון לפי קטגוריה</legend>
+
+        <input class="filter-input" type="radio" name="cat" id="cat-all" checked>
+        <label class="filter-pill" for="cat-all">הכל</label>
+
+        <input class="filter-input" type="radio" name="cat" id="cat-starters">
+        <label class="filter-pill" for="cat-starters">מנות פתיחה</label>
+
+        <input class="filter-input" type="radio" name="cat" id="cat-salads">
+        <label class="filter-pill" for="cat-salads">סלטים</label>
+
+        <input class="filter-input" type="radio" name="cat" id="cat-pizza">
+        <label class="filter-pill" for="cat-pizza">פיצות</label>
+
+        <input class="filter-input" type="radio" name="cat" id="cat-desserts">
+        <label class="filter-pill" for="cat-desserts">קינוחים</label>
+
+        <input class="filter-input" type="radio" name="cat" id="cat-drinks">
+        <label class="filter-pill" for="cat-drinks">שתייה</label>
+      </fieldset>
+    </section>
+
+    <!-- סינון לפי מאפיינים -->
+    <section class="menu-filters" aria-label="סינון לפי מאפיינים">
+      <input type="checkbox" id="filter-vegan" class="filter-input">
+      <label for="filter-vegan" class="filter-pill" title="סינון: טבעוני בלבד"> טבעוני</label>
+    </section>
+
+    <!-- מנות פתיחה -->
+    <section id="section-starters" class="menu-section" aria-labelledby="starters-title">
+      <h2 id="starters-title">מנות פתיחה</h2>
+
+      <article class="menu-item" aria-labelledby="starter-1-name">
+        <img class="dish-thumb" src="./תמונות/לחם שום.png" alt="לחם שום חם עם חמאת שום ועשבי תיבול" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="starter-1-name">לחם שום</h3>
+          <p>לחם חם עם חמאת שום ועשבי תיבול.</p>
+          <p class="price"><strong>מחיר:</strong> 18 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="starter-2-name" data-vegan="true">
+        <img class="dish-thumb" src="./תמונות/ברוסקטה.png" alt="ברוסקטה עם עגבניות, בזיליקום ושמן זית" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="starter-2-name">
+            ברוסקטה
+            <img class="vegan-icon" src="./תמונות/images.png" alt="טבעוני" loading="lazy" />
+          </h3>
+          <p>לחם קלוי, עגבניות, בזיליקום, שמן זית.</p>
+          <p class="price"><strong>מחיר:</strong> 24 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="starter-3-name">
+        <img class="dish-thumb" src="./תמונות/מקלות מוצרלה.png" alt="מקלות מוצרלה פריכים עם מטבל" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="starter-3-name">מקלות מוצרלה</h3>
+          <p>מוצרלה מטוגנת פריכה עם מטבל.</p>
+          <p class="price"><strong>מחיר:</strong> 28 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="starter-4-name" data-vegan="true">
+        <img class="dish-thumb" src="./תמונות/צ'יפס.png" alt="צ׳יפס קלאסי עם תיבול הבית" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="starter-4-name">
+            צ׳יפס
+            <img class="vegan-icon" src="./תמונות/images.png" alt="טבעוני" loading="lazy" />
+          </h3>
+          <p>צ׳יפס קלאסי עם תיבול הבית.</p>
+          <p class="price"><strong>מחיר:</strong> 20 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="starter-5-name" data-vegan="true">
+        <img class="dish-thumb" src="./תמונות/טבעות בצל.png" alt="טבעות בצל זהובות עם מטבל" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="starter-5-name">
+            טבעות בצל
+            <img class="vegan-icon" src="./תמונות/images.png" alt="טבעוני" loading="lazy" />
+          </h3>
+          <p>טבעות בצל זהובות עם מטבל.</p>
+          <p class="price"><strong>מחיר:</strong> 22 ₪</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- סלטים -->
+    <section id="section-salads" class="menu-section" aria-labelledby="salads-title">
+      <h2 id="salads-title">סלטים</h2>
+
+      <article class="menu-item" aria-labelledby="salad-1-name">
+        <img class="dish-thumb" src="./תמונות/סלט יווני.png" alt="סלט יווני עם עגבניות, מלפפון, זיתים ופטה" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="salad-1-name">סלט יווני</h3>
+          <p>עגבניות, מלפפון, זיתים, פטה, אורגנו.</p>
+          <p class="price"><strong>מחיר:</strong> 42 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="salad-2-name">
+        <img class="dish-thumb" src="./תמונות/סלט קיסר.png" alt="סלט קיסר עם חסה רומאית, פרמזן וקרוטונים" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="salad-2-name">סלט קיסר</h3>
+          <p>חסה רומאית, פרמזן, קרוטונים, רוטב קיסר.</p>
+          <p class="price"><strong>מחיר:</strong> 44 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="salad-3-name" data-vegan="true">
+        <img class="dish-thumb" src="./תמונות/סלט גינה.png" alt="סלט גינה עם עלים ירוקים וירקות עונתיים" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="salad-3-name">
+            סלט גינה
+            <img class="vegan-icon" src="./תמונות/images.png" alt="טבעוני" loading="lazy" />
+          </h3>
+          <p>עלי ירק טריים, ירקות עונתיים.</p>
+          <p class="price"><strong>מחיר:</strong> 38 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="salad-4-name">
+        <img class="dish-thumb" src="./תמונות/סלט קפרזה.png" alt="סלט קפרזה עם מוצרלה, עגבניות ובזיליקום" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="salad-4-name">סלט קפרזה</h3>
+          <p>מוצרלה, עגבניות, בזיליקום, גלייז בלסמי.</p>
+          <p class="price"><strong>מחיר:</strong> 46 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="salad-6-name" data-vegan="true">
+        <img class="dish-thumb" src="./תמונות/סלט קינואה.png" alt="סלט קינואה עם ירקות ועשבי תיבול" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="salad-6-name">
+            סלט קינואה
+            <img class="vegan-icon" src="./תמונות/images.png" alt="טבעוני" loading="lazy" />
+          </h3>
+          <p>קינואה, ירקות, עשבי תיבול, רוטב הדרים.</p>
+          <p class="price"><strong>מחיר:</strong> 48 ₪</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- פיצות -->
+    <section id="section-pizza" class="menu-section" aria-labelledby="pizza-title">
+      <h2 id="pizza-title">פיצה</h2>
+
+      <article class="menu-item" aria-labelledby="pizza-1-name">
+        <img class="dish-thumb" src="./תמונות/מרגריטה.png" alt="פיצה מרגריטה עם מוצרלה ובזיליקום" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="pizza-1-name">מרגריטה</h3>
+          <p>רוטב עגבניות, מוצרלה, בזיליקום.</p>
+          <p class="price"><strong>מחיר:</strong> 58 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="pizza-3-name">
+        <img class="dish-thumb" src="./תמונות/פטריות.png" alt="פיצה פטריות עם מוצרלה ורוטב עגבניות" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="pizza-3-name">פטריות</h3>
+          <p>רוטב עגבניות, מוצרלה, פטריות.</p>
+          <p class="price"><strong>מחיר:</strong> 62 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="pizza-4-name">
+        <img class="dish-thumb" src="./תמונות/צמחונית.png" alt="פיצה צמחונית עם ירקות מעורבים" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="pizza-4-name">צמחונית</h3>
+          <p>רוטב עגבניות, מוצרלה, ירקות מעורבים.</p>
+          <p class="price"><strong>מחיר:</strong> 66 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="pizza-5-name">
+        <img class="dish-thumb" src="./תמונות/ארבע גבינות.png" alt="פיצה ארבע גבינות" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="pizza-5-name">ארבע גבינות</h3>
+          <p>מוצרלה, פרמזן, גורגונזולה, פטה.</p>
+          <p class="price"><strong>מחיר:</strong> 70 ₪</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- קינוחים -->
+    <section id="section-desserts" class="menu-section" aria-labelledby="desserts-title">
+      <h2 id="desserts-title">קינוחים</h2>
+
+      <article class="menu-item" aria-labelledby="dessert-1-name">
+        <img class="dish-thumb" src="/תמונות/טרמיסו.png" alt="טירמיסו איטלקי קלאסי עם קרם ומעט קקאו" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="dessert-1-name">טירמיסו</h3>
+          <p>קינוח איטלקי קלאסי עם קרם עשיר וקקאו.</p>
+          <p class="price"><strong>מחיר:</strong> 38 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="dessert-2-name">
+        <img class="dish-thumb" src="/תמונות/עוגת שוקולד.png" alt="עוגת שוקולד חמה עם מרכז נימוח" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="dessert-2-name">עוגת שוקולד חמה</h3>
+          <p>עוגת שוקולד חמה בסגנון פאדג׳, רכה ונמסה בפה.</p>
+          <p class="price"><strong>מחיר:</strong> 36 ₪</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- שתייה -->
+    <section id="section-drinks" class="menu-section" aria-labelledby="drinks-title">
+      <h2 id="drinks-title">שתייה</h2>
+
+      <article class="menu-item" aria-labelledby="drink-1-name" data-vegan="true">
+        <img class="dish-thumb" src="תמונות/לימונדה ביתית.png" alt="לימונדה ביתית עם נענע ולימון" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="drink-1-name">
+            לימונדה ביתית
+            <img class="vegan-icon" src="./תמונות/images.png" alt="טבעוני" loading="lazy" />
+          </h3>
+          <p>משקה קיץ מרענן: לימון סחוט, נענע וקרח.</p>
+          <p class="price"><strong>מחיר:</strong> 18 ₪</p>
+        </div>
+      </article>
+
+      <article class="menu-item" aria-labelledby="drink-2-name" data-vegan="true">
+        <img class="dish-thumb" src="./תמונות/אספרסו.png" alt="אספרסו איטלקי קצר" loading="lazy" />
+        <div class="menu-item__content">
+          <h3 id="drink-2-name">
+            אספרסו
+            <img class="vegan-icon" src="./תמונות/images.png" alt="טבעוני" loading="lazy" />
+          </h3>
+          <p>אספרסו קצר וחזק כמו באיטליה.</p>
+          <p class="price"><strong>מחיר:</strong> 12 ₪</p>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>YOLI</h3>
+                <p>חוויה איטלקית כשרה בלב תל אביב</p>
+            </div>
+            <div>
+                <h4>צור קשר</h4>
+                <p>הרצל 123, תל אביב</p>
+                <p>03-1234567</p>
+                <p>info@yoli-restaurant.co.il</p>
+            </div>
+            <div>
+                <h4>שעות פתיחה</h4>
+                <p>ראשון–חמישי: 12:00-23:00</p>
+                <p>שישי: סגור</p>
+                <p>שבת: 20:00-00:00</p>
+            </div>
+            <div>
+                <h4>עקבו אחרינו</h4>
+                <div class="footer-social">
+                    <a href="#" aria-label="אינסטגרם"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="פייסבוק"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © YOLI - כל הזכויות שמורות
+        </div>
+    </footer>  
+
+  <script src="/menu.js" defer></script>
+</body>
+</html>
