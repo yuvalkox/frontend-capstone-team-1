@@ -590,7 +590,7 @@ article.menu-item .menu-item__content {
 
 
 body.theme-dark{
-  background: rgba(21, 26, 32, 1);   /* כהה כמו בעמוד האחר */
+  background: rgba(21, 26, 32, 1);   
   color: #f3f4f6;
 }
 
@@ -613,7 +613,7 @@ body.theme-dark .menu-hero #menu-title{
 
 
 body.theme-dark .menu-filters{
-  background: rgba(89, 22, 26, 0.55);      /* בורדו שקוף */
+  background: rgba(89, 22, 26, 0.55);      
   border-color: rgba(255,255,255,0.12);
 }
 
@@ -629,7 +629,7 @@ body.theme-dark .filter-pill:hover{
 
 
 body.theme-dark .filter-input:checked + .filter-pill{
-  background: rgba(139, 44, 48, 1);         /* בורדו מלא */
+  background: rgba(139, 44, 48, 1);        
   border-color: rgba(255,255,255,0.18);
   color: #f3f4f6;
 }
@@ -641,7 +641,7 @@ body.theme-dark .filter-input:focus-visible + .filter-pill{
 }
 
 body.theme-dark .menu-section{
-  background: rgba(89, 22, 26, 0.35);       /* בורדו כהה עדין */
+  background: rgba(89, 22, 26, 0.35);      
   border-color: rgba(255,255,255,0.12);
 }
 body.theme-dark .menu-section > h2{
@@ -651,7 +651,7 @@ body.theme-dark .menu-section > h2{
 
 body.theme-dark .menu-section article,
 body.theme-dark article.menu-item{
-  background: rgba(21, 26, 32, 0.82);       /* כהה */
+  background: rgba(21, 26, 32, 0.82);       
   border-color: rgba(255,255,255,0.10);
 }
 
@@ -673,7 +673,7 @@ body.theme-dark .menu-section article p:last-child{
 
 
 body.theme-dark .menu-section article:hover{
-  background: rgba(139, 44, 48, 0.55);      /* בורדו הובר */
+  background: rgba(139, 44, 48, 0.55);      
   border-color: rgba(255,255,255,0.18);
 }
 
@@ -726,7 +726,7 @@ body.theme-dark .vegan-icon{
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .menu-hero {
     height: 340px;
   }
@@ -793,9 +793,33 @@ body.theme-dark footer {
     background: rgba(89, 22, 26, 1);
     border-top: 1px solid #404040;
 }
-@media (min-width: 1201px){
+
+@media (min-width: 481px) {  
     .footer-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+ }
+    
+@media (min-width: 1201px){ 
+
+    footer {
+        padding: 50px 20px 0;
+    }
+
+    .footer-grid {
         gap: 40px;
     }
-  }
+
+    footer h3, footer h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    footer p {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    
+
+}

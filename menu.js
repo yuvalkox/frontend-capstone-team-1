@@ -33,7 +33,6 @@ const nav = document.getElementById("nav");
 const hamburger = document.querySelector('.hamburger');
 
 
-// ריחוף והדגשה למצב פוקוס      
 function makeInteractive(el) {
   if (!el) return;
 

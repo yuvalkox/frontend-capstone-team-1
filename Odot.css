@@ -1,3 +1,6 @@
+* {
+ box-sizing: border-box;
+}
 
 /*עריכת גודל הNAVBAR */
 header{
@@ -267,6 +270,453 @@ body.theme-dark #nav a{
 
 
 
+body{
+  margin: 0;
+  color: black;
+  padding-top: 64px;     
+  background: transparent;
+  font-family: 'Assistant';
+  width: 100%;
+}
+
+
+
+.page-bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+
+.about-header{
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.header-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-text-overlay{
+  text-align: center;
+  color: white;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.hero-text-overlay h1{
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+}
+
+
+.main-container{
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  margin: 0 auto;
+  padding: 22px 16px 60px;
+}
+
+
+.main-container section{
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+h2{
+  color: rgba(139,44,48,1);
+  text-align: center;
+  margin: 0 0 25px;
+  padding-right: 15px;
+}
+
+
+.restaurant-story,
+.founders-section{
+  background: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+}
+
+
+.restaurant-story p,
+.founders-section p{
+  font-family: "Playpen Sans Hebrew", cursive;
+}
+
+
+.founders-grid{
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px 0;
+  padding: 0 16px;
+}
+
+.founder-card{
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.founders-grid .letter{ 
+  color: rgba(139,44,48,1);
+ }
+
+.letter{
+  font-size: 3rem;
+  font-weight: bold;
+  display: block;
+}
+
+.name{
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.bio-box{
+  background: transparent;
+  padding: 20px;
+  min-height: 80px;
+  font-family: "Playpen Sans Hebrew", cursive;
+  color: gray;
+  text-align: center;
+  font-size: 20px;
+  border-right: none;
+}
+
+
+.food-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  background: rgba(255,255,255,0.8);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  
+}
+
+.gallery-item{
+  width: 48%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 481px){
+  .gallery-item{ width: 100%; }
+}
+
+#contact{
+  scroll-margin-top: 80px;
+}
+.contact-section{
+  background: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 16px;
+}
+
+.contact-container{
+  width: clamp(280px, 92vw, 600px);
+  margin: 0 auto;
+  padding: 18px;  
+   width: 100%;        
+}
+
+.contact-section h2{
+  font-size: 3rem;
+  margin-bottom: 12px;
+  color: rgba(139,44,48,1);
+}
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label{
+  font-weight: 700;
+  color: black;
+}
+
+.form-group input,
+.form-group textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(0,0,0,0.14);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.92);
+  text-align: right;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus{
+  outline: none;
+  border-color: rgba(139,44,48,0.55);
+  box-shadow: 0 0 0 4px rgba(139,44,48,0.16);
+}
+
+.field-error{
+  display: none;
+  color: rgba(139,44,48,1);
+  font-size: 13px;
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.contact-form input.invalid,
+.contact-form textarea.invalid{
+  border-color: rgba(139,44,48,1);
+  border-width: 2px;
+}
+
+.submit-btn{
+  margin-top: 10px;
+  background: rgba(139,44,48,1);
+  color: white;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  
+}
+
+.submit-btn:hover{
+   background: rgba(160, 55, 60, 1);
+}
+
+
+#message{ 
+  resize: none;
+ }
+
+
+.yoli-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0,0,0,0.35);
+  z-index: 3000;
+}
+
+.yoli-modal.is-open{
+   display: flex; 
+  }
+
+.yoli-modal__card{
+  width: clamp(280px, 92vw, 420px);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+  padding: 18px 16px 14px;
+  text-align: center;
+}
+
+.yoli-modal__title{
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: rgba(139,44,48,1);
+}
+
+.yoli-modal__text{
+  margin: 0 0 14px;
+  color: black;
+  
+}
+
+.yoli-modal__btn{
+  background: rgba(139,44,48,1);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+
+@media (min-width: 480px){
+  .grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .gallery-item{
+    width: 32%;
+    height: 200px;
+  }
+   body.theme-dark .main-container{
+    margin-top: 24px !important;
+  }
+}
+
+@media (min-width: 1201px){
+  .hero-text-overlay h1{
+    font-size: 5rem;
+    letter-spacing: 8px;
+  }
+
+  .main-container{
+    margin: -40px auto 50px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+  }
+
+  .main-container section{
+    padding: 24px;
+    border-radius: 18px;
+    margin-top: 28px;
+  }
+
+
+
+  .founders-grid{
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .founder-card{
+     flex: 1;
+     }
+}
+
+
+body.theme-dark{
+  color: rgba(243,244,246,0.92);
+}
+
+body.theme-dark .main-container section{
+  background: rgba(21, 26, 32, 0.68);
+  border-color: rgba(255,255,255,0.14);
+}
+
+body.theme-dark h2{
+  color: rgba(255, 220, 220, 0.92);
+}
+
+body.theme-dark .restaurant-story p,
+body.theme-dark .founders-section p,
+body.theme-dark .contact-section p{
+  color: rgba(243,244,246,0.90);
+}
+
+body.theme-dark .bio-box{
+  color: rgba(243,244,246,0.90) ;
+  border-right-color: rgba(255, 220, 220, 0.85);
+}
+
+body.theme-dark .form-group label{
+  color: rgba(243,244,246,0.92);
+}
+
+body.theme-dark .form-group input,
+body.theme-dark .form-group textarea{
+  background: rgba(21,26,32,0.70);
+  border-color: rgba(255,255,255,0.16);
+  color: rgba(243,244,246,0.95);
+}
+
+body.theme-dark .form-group input::placeholder,
+body.theme-dark .form-group textarea::placeholder{
+  color: rgba(243,244,246,0.55);
+}
+
+body.theme-dark .submit-btn{
+  background: rgba(255,220,220,0.92);
+  color: rgba(89,22,26,1);
+}
+
+body.theme-dark .field-error{
+  color: rgba(255,220,220,0.92);
+}
+
+body.theme-dark .contact-form input.invalid,
+body.theme-dark .contact-form textarea.invalid{
+  border-color: rgba(255,220,220,0.92);
+}
+
+body.theme-dark .yoli-modal__card{
+  background: rgba(21,26,32,0.92);
+  border-color: rgba(255,255,255,0.14);
+}
+
+body.theme-dark .yoli-modal__text{
+  color: rgba(243,244,246,0.90);
+}
+
+body.theme-dark .yoli-modal__btn{
+  background: rgba(255,220,220,0.92);
+  color: rgba(89,22,26,1);
+}
+
+body.theme-dark .food-gallery{
+  background: rgba(21, 26, 32, 0.68);
+  border-color: rgba(255,255,255,0.14);
+}
+
+body.theme-dark .name{
+  color: rgba(243,244,246,0.90);
+}
+
 
 
 
@@ -332,10 +782,33 @@ body.theme-dark footer {
     background: rgba(89, 22, 26, 1);
     border-top: 1px solid #404040;
 }
-@media (min-width: 1201px){
- /* סידור הפוטר ל-4 טורים לפי המצגת */
+
+@media (min-width: 481px) {  
     .footer-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+ }
+    
+@media (min-width: 1201px){ 
+
+    footer {
+        padding: 50px 20px 0;
+    }
+
+    .footer-grid {
         gap: 40px;
     }
-  }
+
+    footer h3, footer h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    footer p {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    
+
+}
