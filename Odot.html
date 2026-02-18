@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות - YOLI</title>
+    
+    <!--קישורי CSS-->
+    <link rel="stylesheet" href="/Odot.css">
+    
+    <!-- פונט של גוגל-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Rubik+Doodle+Shadow&family=Secular+One&display=swap" rel="stylesheet">
+
+ 
+</head>
+<body>
+    <img class="page-bg" src="/תמונות/תמונת רקע.png" alt="" aria-hidden="true" loading="lazy">
+    <header >
+
+      <!--ניווט עליון-->
+    <nav aria-label="ניווט ראשי באתר">
+      <div class="nav-center">
+          <img id="LOGO" src="/תמונות/לוגו.png" alt="לוגו YOLI" loading="lazy">
+      </div>
+      <!--המבורגר-->
+      <div class="nav-right">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="פתיחה וסגירה של התפריט">
+        <label for="nav-toggle" class="hamburger" aria-label="פתיחת תפריט" title="תפריט">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+        <!--רשימת קישורים-->
+        <ul id="nav" class="nav" aria-label="עמודים ראשיים">
+            <li><a id="home-link" href="/Home.html" title="מעבר לדף הבית">דף הבית</a></li>
+            <li><a id="about-link" href="/Odot.html#top" title="מידע עלינו">אודות</a></li>
+            <li><a id="menu-link" href="/Menu.html" title="צפייה בתפריט">תפריט</a></li>
+            <li><a id="reserve-link" href="/TableBooking.html" title="הזמנת מקום">הזמן מקום</a></li>
+            <li><a id="contact-link" href="/Odot.html#contact" title="יצירת קשר">צור קשר</a></li>
+        </ul>
+      </div>
+
+      <!--כפתורים-->
+      <div class="nav-left">
+        <div class="nav-actions">
+          <a id="cart-link" class="cart-btn" href="/Checkout.html" aria-label="צפייה בעגלה" title="עגלה">
+            <img src="/תמונות/עגלה.png" alt="" loading="lazy">
+          </a>
+
+          <button id="dark-mode-toggle" aria-label="החלפת מצב תצוגה">
+            <img  class="dm-icon dm-light" src="/תמונות/מצב לילה.png" alt="מצב לילה" loading="lazy">
+          </button>
+
+          <button type="button" id="light-mode-toggle" aria-label="הפעלת מצב בהיר" title="מצב בהיר">
+            <img src="/תמונות/שמש.svg" alt="מצב יום" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </nav>
+   
+</header>
+
+    <main class="main-container" id="top">
+        <!--הקדמה-->
+        <section class="about-header" aria-labelledby="about-title">
+            <div class="hero-text-overlay">
+                <h1>אודות</h1>
+            </div>
+        </section>
+
+        <section class="restaurant-story">
+            <h2>איטליה בלב תל אביב</h2>
+            <p>
+                מסעדת <strong>YOLI</strong> נולדה מתוך רצון ליצור מקום שבו האוכל הוא רק התירוץ למפגש. 
+                התפריט שלנו מבוסס על מתכונים מסורתיים שעברו מדור לדור, עם פרשנות מודרנית וחומרי גלם טריים שמגיעים אלינו בכל בוקר.
+            </p>
+            <p>
+                האווירה ב-YOLI היא שילוב בין החמימות של טוסקנה לאנרגיה הישראלית. אנחנו מאמינות שפסטה טובה, יין איכותי וחברה טובה הם המרכיבים לחיים מאושרים.
+            </p>
+        </section>
+
+      
+        
+        <section class="founders-section">
+            <h2>הלב הפועם של YOLI</h2>
+            <p>השם שלנו הוא לא רק מילה, הוא החיבור שבין ארבע חברות שהחליטו להפוך חלום למציאות:</p>
+            <!--כפתורי אותיות של השמות-->
+            <div class="founders-grid">
+                <button type="button" class="founder-card" data-bio="יובל היא המאסטר של הבצקים שלנו, אחראית על הפיצות והפסטות שנעשות בעבודת יד." aria-controls="bio-display"  aria-label="הצגת מידע על Yuval" >
+                    <span class="letter" aria-hidden="true">Y</span>
+                    <span class="name">Yuval</span>
+                </button>
+
+                <button type="button" class="founder-card" data-bio="עומר מנצחת על המטבח והרטבים, עם יד קסם בכל סיר ודיוק בכל טעם." aria-controls="bio-display" aria-label="הצגת מידע על Omer" >
+                    <span class="letter" aria-hidden="true">O</span>
+                    <span class="name">Omer</span>
+                </button>
+
+                <button type="button" class="founder-card" data-bio="ליהיא היא האחראית על הצד המתוק, יוצרת הקינוחים שתמיד משאירים טעם של עוד." aria-controls="bio-display" aria-label="הצגת מידע על Lihi" >
+                    <span class="letter" aria-hidden="true">L</span>
+                    <span class="name">Lihi</span>
+                </button>
+
+                <button type="button" class="founder-card" data-bio="אילור היא הפנים של המסעדה, דואגת שהאירוח והאווירה יהיו מושלמים עבורכם." aria-controls="bio-display" aria-label="הצגת מידע על Ilor" >
+                    <span class="letter" aria-hidden="true">I</span>
+                    <span class="name">Ilor</span>
+                </button>
+            </div>
+
+            <div id="bio-display" class="bio-box" aria-live="polite">
+                 לחצו על אחת האותיות כדי להכיר אותנו מקרוב...
+            </div>
+        </section>
+
+        <!--צור קשר-->
+        <section  id="contact" class="contact-section" aria-labelledby="contact-title">
+            <div class="contact-container">
+                <h2 id="contact-title">צרו קשר</h2>
+                <p>נשמח לשמוע מכם! מלאו את הפרטים ונחזור אליכם בהקדם.</p>
+
+                <form id="contact-form" class="contact-form" novalidate>
+
+                    <div class="grid">
+                        <div class="form-group field">
+                            <label for="full-name">שם מלא *</label>
+                            <input type="text" id="full-name" name="full-name" placeholder="הזן שם מלא" required autocomplete="name">
+                            <span id="nameError" class="field-error" aria-live="polite"></span>
+                        </div>
+
+                     <div class="form-group field">
+                        <label for="phone">טלפון *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="0500000000" required autocomplete="tel">
+                        <span id="phoneError" class="field-error" aria-live="polite"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="email">אימייל (אופציונלי)</label>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" autocomplete="email">
+                        <span id="emailError" class="field-error" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group field">
+                        <label for="message">תוכן הפנייה *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="איך אנחנו יכולים לעזור?" required></textarea>
+                        <span id="messageError" class="field-error" aria-live="polite"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">שליחה</button>
+                </form>
+            </div>
+        </section>
+
+      <section class="food-gallery" aria-label="גלריית תמונות">
+      <div class="gallery-item">
+        <img src="/תמונות/הכנת פיצה.png" alt="הכנת פיצה במטבח" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="/תמונות/אנשים.png" alt="אורחים במסעדה" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="/תמונות/שולחן.png" alt="שולחן ערוך באווירה איטלקית" loading="lazy">
+      </div>
+    </section>
+
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>YOLI</h3>
+                <p>חוויה איטלקית כשרה בלב תל אביב</p>
+            </div>
+            <div>
+                <h4>צור קשר</h4>
+                <p>הרצל 123, תל אביב</p>
+                <p>03-1234567</p>
+                <p>info@yoli-restaurant.co.il</p>
+            </div>
+            <div>
+                <h4>שעות פתיחה</h4>
+                <p>ראשון–חמישי: 12:00-23:00</p>
+                <p>שישי: סגור</p>
+                <p>שבת: 20:00-00:00</p>
+            </div>
+            <div>
+                <h4>עקבו אחרינו</h4>
+                <div class="footer-social">
+                    <a href="#" aria-label="אינסטגרם"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="פייסבוק"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © YOLI - כל הזכויות שמורות
+        </div>
+    </footer>
+
+ 
+
+    
+    <div id="yoli-modal" class="yoli-modal" aria-hidden="true">
+        <div class="yoli-modal__card" role="dialog" aria-modal="true" aria-labelledby="yoli-modal-title">
+            <h3 id="yoli-modal-title" class="yoli-modal__title"></h3>
+            <p id="yoli-modal-text" class="yoli-modal__text"></p>
+            <button id="yoli-modal-ok" type="button" class="yoli-modal__btn">אישור</button>
+         </div>
+    </div>
+    <script src="/Odot.js"></script>
+</body>
+</html>
