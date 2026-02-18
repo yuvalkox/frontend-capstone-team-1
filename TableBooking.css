@@ -535,6 +535,7 @@ body.theme-dark .summary-details {
     .card {
         padding: 40px 50px; 
     }
+
 }
 
 /* לפטופ ומחשב (1201px ומעלה) - תפריט פתוח ופוטר רחב */
@@ -643,11 +644,35 @@ body.theme-dark footer {
     background: rgba(89, 22, 26, 1);
     border-top: 1px solid #404040;
 }
-@media (min-width: 1201px){
- /* סידור הפוטר ל-4 טורים לפי המצגת */
+
+@media (min-width: 481px) {  
     .footer-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+ }
+    
+@media (min-width: 1201px){ 
+
+    footer {
+        padding: 50px 20px 0;
+    }
+
+    .footer-grid {
         gap: 40px;
     }
-  }
+
+    footer h3, footer h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    footer p {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    
+
+}
+  
    
