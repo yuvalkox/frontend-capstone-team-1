@@ -234,9 +234,251 @@ function updateTotals() {
     if (submitBtn) submitBtn.innerHTML = `שלם ₪${total}`;
 }
 
+function showPaymentStep() {
+    if (cartSection) cartSection.style.display = 'none';
+    if (paymentSection) {
+        paymentSection.style.display = 'block';
+        paymentSection.classList.add('visible');
+    }
+    if (pageTitle) pageTitle.textContent = "פרטי תשלום";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
+function showSuccessStep() {
+    const nameInput = document.querySelector('input[name="name"]');
+    const nameValue = nameInput.value; 
 
+    let typeValue = "איסוף עצמי";
+    if (deliveryType === 'delivery') {
+        typeValue = "משלוח עד הבית";
+    }
 
+    const randomOrderNum = Math.round(Math.random() * 9000) + 1000;
+
+    document.getElementById('confName').textContent = nameValue;
+    document.getElementById('confType').textContent = typeValue;
+    document.getElementById('confOrderNum').textContent = randomOrderNum;
+
+    let timeText;
+    if (deliveryType === 'delivery') {
+        timeText = "30-60 דקות";
+    } else {
+        timeText = "25 דקות";
+    }
+    document.getElementById('confTime').textContent = timeText;
+
+    if (paymentSection) paymentSection.style.display = 'none';
+    if (pageTitle) pageTitle.style.display = 'none';
+    if (successSection) {
+        successSection.style.display = 'block';
+        successSection.classList.add('visible');
+    }
+
+    localStorage.removeItem('cart');
+    cart = [];
+}
+
+function setupEventListeners() {
+    if (toPaymentBtn) {
+        toPaymentBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPaymentStep();
+        });
+    }
+
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            showSuccessStep();
+        });
+    }
+
+    if (deliveryBtn) {
+        deliveryBtn.addEventListener('click', function () {
+            deliveryType = 'delivery';
+            this.classList.add('selected');
+            if (pickupBtn) pickupBtn.classList.remove('selected');
+            if (addressField) {
+                addressField.style.display = 'block';
+                const input = addressField.querySelector('input');
+                if (input) input.required = true;
+            }
+            updateTotals();
+        });
+    }
+
+    if (pickupBtn) {
+        pickupBtn.addEventListener('click', function () {
+            deliveryType = 'pickup';
+            this.classList.add('selected');
+            if (deliveryBtn) deliveryBtn.classList.remove('selected');
+            if (addressField) {
+                addressField.style.display = 'none';
+                const input = addressField.querySelector('input');
+                if (input) input.required = false;
+            }
+            updateTotals();
+        });
+    }
+
+    const modalConfirm = document.getElementById('modalConfirm');
+    if (modalConfirm) {
+        modalConfirm.onclick = function () {
+            if (itemToDeleteIndex !== null) {
+                cart.splice(itemToDeleteIndex, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+                closeModal();
+            }
+        };
+    }
+
+    const modalCancel = document.getElementById('modalCancel');
+    if (modalCancel) modalCancel.onclick = closeModal;
+}
+
+function setupValidation() {
+    const fullNameInput = document.querySelector('input[name="name"]');
+    const phoneInput = document.getElementById('phone');
+    const idInput = document.getElementById('idNumber');
+    const cardNameInput = document.getElementById('cardName');
+    const expiryInput = document.getElementById('cardExpiry');
+    const cvvInput = document.getElementById('cvv');
+    const cardNumInput = document.getElementById('cardNumber');
+
+    if (fullNameInput) {
+        fullNameInput.addEventListener('input', function () {
+            let clean = "";
+            for (let i = 0; i < this.value.length; i++) {
+                if (this.value[i] < '0' || this.value[i] > '9') clean += this.value[i];
+            }
+            this.value = clean;
+        });
+    }
+
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+            keepOnlyDigits(this);
+            const error = document.getElementById('phoneError');
+            const isValid = (this.value.length === 10);
+            toggleError(this, error, "מספר שגוי", this.value.length > 0 && !isValid);
+        });
+    }
+
+    if (idInput) {
+        idInput.addEventListener('input', function () {
+            keepOnlyDigits(this);
+            const error = document.getElementById('idError');
+            const isValid = (this.value.length === 9);
+            toggleError(this, error, "ת.ז לא תקינה", this.value.length > 0 && !isValid);
+        });
+    }
+
+    if (cardNameInput) {
+        cardNameInput.addEventListener('input', function () {
+            let clean = "";
+            for (let i = 0; i < this.value.length; i++) {
+                if (this.value[i] < '0' || this.value[i] > '9') clean += this.value[i];
+            }
+            this.value = clean;
+        });
+    }
+
+    if (cvvInput) {
+        cvvInput.addEventListener('input', function () {
+            keepOnlyDigits(this);
+        });
+    }
+
+    if (cardNumInput) {
+        cardNumInput.addEventListener('input', function () {
+            let clean = keepOnlyDigits(this);
+
+            let formatted = "";
+            for (let i = 0; i < clean.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += " ";
+                formatted += clean[i];
+            }
+            this.value = formatted;
+
+            const error = document.getElementById('cardError');
+            const isValid = (clean.length === 16);
+            toggleError(this, error, "מספר כרטיס חייב להכיל 16 ספרות", clean.length > 0 && !isValid);
+        });
+    }
+
+    if (expiryInput) {
+        expiryInput.addEventListener('input', function () {
+            let clean = "";
+            for (let i = 0; i < this.value.length; i++) {
+                if (this.value[i] >= '0' && this.value[i] <= '9') clean += this.value[i];
+            }
+            if (clean.length >= 2) {
+                this.value = clean.substring(0, 2) + '/' + clean.substring(2, 4);
+            } else {
+                this.value = clean;
+            }
+        });
+
+        expiryInput.addEventListener('change', function () {
+            const error = document.getElementById('expiryError');
+            const val = this.value;
+            let isValid = false;
+
+            if (val.length === 5 && val.includes('/')) {
+                const parts = val.split('/');
+                const month = parseInt(parts[0], 10);
+                const year = parseInt(parts[1], 10);
+                const currentYearShort = 26;
+                const currentMonth = new Date().getMonth() + 1;
+                if (month >= 1 && month <= 12) {
+                    if (year > currentYearShort) isValid = true;
+                    else if (year === currentYearShort && month >= currentMonth) isValid = true;
+                }
+            }
+
+            toggleError(this, error, "תוקף הכרטיס פג או לא חוקי", val.length > 0 && !isValid);
+        });
+    }
+}
+
+function updateQuantity(index, delta) {
+    if (delta === -1 && cart[index].quantity === 1) {
+        removeItem(index);
+        return;
+    }
+    cart[index].quantity += delta;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+}
+
+function removeItem(index) {
+    itemToDeleteIndex = index;
+    const msg = document.getElementById('modalMessage');
+    if (msg) msg.textContent = `האם להסיר את "${cart[index].name}" מהעגלה?`;
+    const input = document.getElementById('modalInput');
+    if (input) input.style.display = 'none';
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeModal() {
+    if (modal) modal.style.display = 'none';
+    itemToDeleteIndex = null;
+}
+
+function editItem(index) {
+    const item = cart[index];
+    window.location.href = `LIHI.html?id=${encodeURIComponent(item.id || item.name)}&editMode=true&cartIndex=${index}`;
+}
+
+function setupJsEffects() {
+    var buttons = document.querySelectorAll('.btn-primary, .submit-button');
+    for (var i = 0; i < buttons.length; i++) {
+        var btn = buttons[i];
+        btn.onmouseenter = function () { this.style.opacity = '0.9'; };
+        btn.onmouseleave = function () { this.style.opacity = '1'; };
+    }
+}
 
 // פוטר 
 const light = '#cbcbcaff'; 
