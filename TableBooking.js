@@ -113,7 +113,123 @@ if (navToggle && nav) {
  
     }
   });
-}
+
+
+// ניהול טופס הזמנה
+    const now = new Date();
+    const todayStr = now.toLocaleDateString('sv-SE'); // פורמט תאריך תקני
+    if (dateInput) dateInput.min = todayStr;
+
+    // בדיקת תקינות מספר טלפון
+    function validatePhone() {
+        if (!phoneInput) return true;
+        const phoneValue = phoneInput.value.trim();
+        if (phoneValue.length === 0) {
+            phoneError.style.display = "none";
+            phoneInput.classList.remove('invalid');
+            return true;
+        } 
+        const isValid = !isNaN(phoneValue) && phoneValue.length === 10 && phoneValue.startsWith('0');
+        if (!isValid) {
+            phoneError.textContent = "נא להזין מספר טלפון תקין (10 ספרות)";
+            phoneError.style.display = "block";
+            phoneInput.classList.add('invalid');
+            return false;
+        }
+        phoneError.style.display = "none";
+        phoneInput.classList.remove('invalid');
+        return true;
+    }
+
+    // מילוי השעות בתיבת הבחירה
+    function populateHours(hourArray) {
+        if (!timeSelect) return;
+        timeSelect.innerHTML = '<option value="" disabled selected>בחר שעת הגעה</option>';
+        const isToday = (dateInput.value === todayStr);
+        const currentHour = new Date().getHours();
+        const currentMin = new Date().getMinutes();
+
+        for (let i = 0; i < hourArray.length; i++) {
+            const hour = hourArray[i];
+            const timeParts = hour.split(':');
+            const h = Number(timeParts[0]);
+            const m = Number(timeParts[1]);
+            
+            const opt = document.createElement('option');
+            opt.value = hour;
+            opt.textContent = hour;
+            
+            // חוסם שעות שכבר עברו אם התאריך הוא להיום
+            if (isToday && (h < currentHour || (h === currentHour && m <= currentMin))) {
+                opt.disabled = true;
+            }
+            timeSelect.appendChild(opt);
+        }
+    }
+
+    // עדכון שעות פתיחה לפי היום שנבחר
+    if (dateInput) {
+        dateInput.addEventListener('change', function() {
+            if (!this.value) return;
+            const day = new Date(this.value).getDay();
+            
+            // בדיקה אם נבחר יום שישי
+            if (restaurantConfig.openingHours.closedDays.includes(day)) {
+                timeSelect.innerHTML = '<option value="closed">המסעדה סגורה</option>';
+                timeSelect.disabled = true;
+                showStatus("המסעדה סגורה בימי שישי - נא לבחור תאריך אחר");
+                return;
+            }
+            
+            timeSelect.disabled = false;
+            let relevantHours;
+            if (day === 6) {
+                relevantHours = restaurantConfig.openingHours.saturday;
+            } else {
+                relevantHours = restaurantConfig.openingHours.weekday;
+            }
+            populateHours(relevantHours);
+        }); 
+    }
+
+    if (phoneInput) phoneInput.addEventListener('input', validatePhone);
+
+    // שליחת הטופס והצגת כרטיס אישור
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!form.checkValidity() || !validatePhone()) return;
+
+            const guests = document.getElementById('guests').value;
+            if (guests === "10+") {
+                showStatus("להזמנות מעל 10 סועדים - אנא התקשרו למסעדה");
+                return;
+            }
+
+            // העברת נתונים לסיכום ההזמנה
+            document.getElementById('confName').textContent = document.getElementById('name').value.trim();
+            document.getElementById('confDate').textContent = dateInput.value.split('-').reverse().join('/');
+            document.getElementById('confTime').textContent = timeSelect.value;
+            document.getElementById('confGuests').textContent = guests;
+            document.getElementById('confArea').textContent = document.getElementById('area').value;
+
+            form.style.display = 'none';
+            const confBox = document.getElementById('confirmationBox');
+            if (confBox) confBox.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // פונקציה להצגת מודל הודעות
+    function showStatus(text) {
+        document.getElementById('messageText').textContent = text;
+        document.getElementById('message').style.display = "block";
+        const closeBtn = document.querySelector('.message-btn');
+        closeBtn.onclick = function() { 
+            document.getElementById('message').style.display = "none"; 
+        };
+    }
+};
 
 // פוטר 
 const light = '#cbcbcaff'; 
