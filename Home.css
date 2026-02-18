@@ -308,25 +308,144 @@ h1 {
   box-shadow: 4px 4px 0px rgba(139,44,48,0.2); 
 }
 
+.gallery {
+  padding: 80px 20px 0px;
+  background: rgba(252,244,236,1);
+  text-align: center;
+}
 
+.gallery h2 {
+  color: rgba(139,44,48,1);
+  font-size: 48px;
+  margin-bottom: 20px;
+}
 
+.gallery p {
+  color: #444;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
 
+.images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  max-width: 1500px;
+  margin: auto;
+}
 
+.images img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
+body.theme-dark .gallery, body.theme-dark .cta {
+  background-color: #1a0506;
+  border-top: none;
+  color: #e7e5e4;
+}
 
+body.theme-dark .gallery h2, body.theme-dark .gallery p, body.theme-dark .cta h2, body.theme-dark .cta p {
+  color: rgba(252,244,236,1);
+}
 
+.cta {
+  padding: 60px 20px;
+  background-color: rgba(252,244,236,1);
+  text-align: center;
+  position: relative;
+}
 
+.cta h2 {
+  color: rgba(139,44,48,1);
+  font-size: 48px;
+  margin-bottom: 15px;
+}
 
+.cta h2::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: rgba(139,44,48,0.5);
+  margin: 0 auto 20px;
+  border-radius: 2px;
+}
 
+.cta p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 35px;
+}
+/*  פוטר */
+footer { 
+    background: rgba(139,44,48,1); 
+    padding: 20px 20px 0; 
+    color: rgba(252,244,236,1); 
+    font-size: 16px; 
+}
 
+.footer-grid { 
+    max-width: 1200px; 
+    margin: auto; 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 15px; 
+    padding-bottom: 20px; 
+    text-align: center;
+}
 
+footer h3, 
+footer h4 { 
+    margin-bottom: 5px; 
+    font-size: 18px; 
+    color: rgba(252,244,236,1); 
+    text-align: center;
+}
 
+footer p { 
+    color: rgba(252,244,236,1); 
+    font-size: 14px;
+    margin-bottom: 4px; 
+    text-align: center;
+}
 
+.footer-bottom { 
+    border-top: 1px solid rgba(252,244,236,0.3); 
+    padding: 10px 0; 
+    text-align: center; 
+    font-size: 12px; 
+    color: rgba(252,244,236,1); 
+}
 
+/* רשתות חברתיות בפוטר */
+.footer-social { 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: 5px; 
+}
 
+.footer-social a { 
+    color: rgba(252,244,236,1); 
+    font-size: 20px; 
+    text-decoration: none; 
+}
 
+body.theme-dark footer {
+    background: rgba(89, 22, 26, 1);
+    border-top: 1px solid #404040;
+}
 
-
+@media (min-width: 481px) {  
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+ }
+    
 @media (min-width: 1201px) {
     nav{
     padding: 8px 14px;      
@@ -363,4 +482,21 @@ h1 {
     background: transparent;
     border-bottom: none;
   }
+  footer {
+        padding: 50px 20px 0;
+    }
+
+    .footer-grid {
+        gap: 40px;
+    }
+
+    footer h3, footer h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    footer p {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
 }

@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+
+  const wine = 'rgba(139,44,48,1)';
+  const lightWineActive = 'rgba(210, 100, 110, 0.4)';
+  const light = '#cbcbcaff';
+  const black = '#000';
+  const white = '#fff';
+
 // הגדרת משתנים למצב לילה/יום
 const body = document.body;
 const darkBtn = document.getElementById("dark-mode-toggle");
@@ -96,3 +104,42 @@ if (navToggle && nav) {
     }
   });
 }
+
+// כפתורים גדולים (Order / Contact)
+  function buttonHover(btn) {
+    if (!btn) return;
+    btn.style.backgroundColor = light;
+    btn.style.color = black;
+    btn.style.borderColor = wine;
+   
+    btn.addEventListener('mouseenter', function() {
+      btn.style.backgroundColor = wine;
+      btn.style.color = white;
+    });
+   
+    btn.addEventListener('mouseleave', function() {
+      btn.style.backgroundColor = light;
+      btn.style.color = black;
+    });
+   
+    btn.addEventListener('mousedown', function() {
+      btn.style.backgroundColor = wine;
+    });
+  }
+
+  buttonHover(document.getElementById('orderBtn'));
+  buttonHover(document.getElementById('ctaBtn'));
+
+
+// פוטר 
+
+const footerIcons = document.querySelectorAll('.footer-social a');
+for (let k = 0; k < footerIcons.length; k++) {
+    footerIcons[k].addEventListener('mouseenter', function() {
+        this.style.color = light;
+    });
+    footerIcons[k].addEventListener('mouseleave', function() {
+        this.style.color = white;
+    });
+    }
+  });
