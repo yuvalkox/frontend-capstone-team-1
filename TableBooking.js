@@ -117,7 +117,7 @@ if (navToggle && nav) {
 
 // ניהול טופס הזמנה
     const now = new Date();
-    const todayStr = now.toLocaleDateString('sv-SE'); // פורמט תאריך תקני
+    const todayStr = now.toLocaleDateString('sv-SE');
     if (dateInput) dateInput.min = todayStr;
 
     // בדיקת תקינות מספר טלפון
