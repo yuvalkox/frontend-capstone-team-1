@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>YOLI | You Only Live Italiano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="Home.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Rubik+Doodle+Shadow&family=Secular+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+
+<body>
+    <!--ניווט עליון-->
+ <header>
+        <nav aria-label="ניווט ראשי באתר">
+            <div class="nav-center">
+                <img id="LOGO" src="./תמונות/לוגו.png" alt="לוגו YOLI" loading="lazy">
+                </a>
+            </div>
+            <!--המבורגר-->
+            <div class="nav-right">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="פתיחה וסגירה של התפריט">
+                <label for="nav-toggle" class="hamburger" aria-label="פתיחת תפריט" title="תפריט">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+                <!--רשימת קישורים-->
+                <ul id="nav" class="nav" aria-label="עמודים ראשיים">
+                    <li><a id="home-link" href="/Home.html" title="מעבר לדף הבית">דף הבית</a></li>
+                    <li><a id="about-link" href="/Odot.html#top" title="מידע עלינו">אודות</a></li>
+                    <li><a id="menu-link" href="/Menu.html" title="צפייה בתפריט">תפריט</a></li>
+                    <li><a id="reserve-link" href="/TableBooking.html" title="הזמנת מקום">הזמן מקום</a></li>
+                    <li><a id="contact-link" href="/Odot.html#contact" title="יצירת קשר">צור קשר</a></li>
+                </ul>
+            </div>
+            <!--כפתורים-->
+            <div class="nav-left">
+                <div class="nav-actions">
+                    <a id="cart-link" class="cart-btn" href="/Checkout.html" aria-label="צפייה בעגלה" title="עגלה">
+                        <img src="./תמונות/עגלה.png" alt="" loading="lazy">
+                    </a>
+
+                    <button id="dark-mode-toggle" aria-label="החלפת מצב תצוגה">
+                        <img class="dm-icon dm-light" src="./תמונות/מצב לילה.png" alt="מצב לילה" loading="lazy">
+                    </button>
+
+                    <button type="button" id="light-mode-toggle" aria-label="הפעלת מצב בהיר" title="מצב בהיר">
+                        <img src="./תמונות/שמש.svg" alt="מצב יום" loading="lazy">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+     <section class="hero">
+    <img src="./תמונות/מסעדת יולי.jpg" alt="מסעדת יולי" loading="lazy" class="hero-img">
+    <div class="hero-content">
+      <div class="logo-box">
+        <h1>YOLI</h1>
+        <div class="divider"></div>
+        <div class="tagline">YOU ONLY LIVE ITALIANO</div>
+      </div>
+
+      <div class="desc">
+        מסעדה איטלקית כשרה למהדרין | חוויה קולינרית אותנטית בלב תל אביב
+      </div>
+
+      <a href="/Menu.html" class="btn" id="orderBtn">
+        הזמן עכשיו <i class="bi bi-arrow-left"></i>
+      </a>
+    </div>
+  </section>
