@@ -289,19 +289,15 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  height: 240px; 
+  border: none;
+  height: 180px; 
 }
 
 .menu-hero__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+
   width: 100%;
-  height: 100%;
-  object-fit: cover;    
+  object-fit: cover;
+  height: 100%;    
   object-position: center;   
   display: block;            
 }
@@ -325,7 +321,7 @@ body {
   color: white;
   font-size: 50px;
   letter-spacing: 2px;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 1);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .menu-filters {
@@ -592,23 +588,18 @@ article.menu-item .menu-item__content {
 }
 
 
-/* =========================
-   DARK MODE — MENU PAGE
-   עובד כשיש: body.theme-dark
-   ========================= */
 
-/* רקע כללי + טקסט */
 body.theme-dark{
   background: rgba(21, 26, 32, 1);   /* כהה כמו בעמוד האחר */
   color: #f3f4f6;
 }
 
-/* קונטיינר ראשי */
+
 body.theme-dark #main-content{
   color: #f3f4f6;
 }
 
-/* Hero – להשאיר הטקסט ברור */
+
 body.theme-dark .menu-hero{
   border-color: rgba(255,255,255,0.12);
 }
@@ -620,13 +611,13 @@ body.theme-dark .menu-hero #menu-title{
   text-shadow: 0 2px 18px rgba(0,0,0,0.9);
 }
 
-/* פילטרים */
+
 body.theme-dark .menu-filters{
   background: rgba(89, 22, 26, 0.55);      /* בורדו שקוף */
   border-color: rgba(255,255,255,0.12);
 }
 
-/* כדורי סינון */
+
 body.theme-dark .filter-pill{
   background: rgba(255,255,255,0.08);
   border-color: rgba(255,255,255,0.14);
@@ -636,20 +627,19 @@ body.theme-dark .filter-pill:hover{
   background: rgba(255,255,255,0.14);
 }
 
-/* מצב checked (קטגוריה נבחרת) */
+
 body.theme-dark .filter-input:checked + .filter-pill{
   background: rgba(139, 44, 48, 1);         /* בורדו מלא */
   border-color: rgba(255,255,255,0.18);
   color: #f3f4f6;
 }
 
-/* פוקוס נגיש */
+
 body.theme-dark .filter-input:focus-visible + .filter-pill{
   outline: 3px solid rgba(255,255,255,0.22);
   outline-offset: 3px;
 }
 
-/* סקשנים (מסגרות של קטגוריות) */
 body.theme-dark .menu-section{
   background: rgba(89, 22, 26, 0.35);       /* בורדו כהה עדין */
   border-color: rgba(255,255,255,0.12);
@@ -658,14 +648,14 @@ body.theme-dark .menu-section > h2{
   color: #f3f4f6;
 }
 
-/* כרטיס מנה */
+
 body.theme-dark .menu-section article,
 body.theme-dark article.menu-item{
   background: rgba(21, 26, 32, 0.82);       /* כהה */
   border-color: rgba(255,255,255,0.10);
 }
 
-/* טקסטים בכרטיס */
+
 body.theme-dark .menu-item__content h3{
   color: #f3f4f6;
 }
@@ -673,7 +663,7 @@ body.theme-dark .menu-section article p{
   color: rgba(243,244,246,0.82);
 }
 
-/* תג מחיר */
+
 body.theme-dark .price,
 body.theme-dark .menu-section article p:last-child{
   background: rgba(255,255,255,0.10);
@@ -681,19 +671,17 @@ body.theme-dark .menu-section article p:last-child{
   color: #f3f4f6;
 }
 
-/* Hover על כרטיס */
+
 body.theme-dark .menu-section article:hover{
   background: rgba(139, 44, 48, 0.55);      /* בורדו הובר */
   border-color: rgba(255,255,255,0.18);
 }
 
-/* קישור למנה (סלט יווני) – פוקוס ברור במצב לילה */
 body.theme-dark .menu-section a.menu-link:focus-visible{
   outline: 3px solid rgba(255,255,255,0.28);
   outline-offset: 4px;
 }
 
-/* אייקון טבעוני – שיישב טוב גם על רקע כהה */
 body.theme-dark .vegan-icon{
   background: rgba(34,197,94,0.18);
   border-color: rgba(34,197,94,0.35);
@@ -706,7 +694,7 @@ body.theme-dark .vegan-icon{
   }
 
   .menu-hero {
-    min-height: 260px;
+    height: 260px;
   }
 
   .menu-section {
@@ -740,13 +728,9 @@ body.theme-dark .vegan-icon{
 
 @media (min-width: 1200px) {
   .menu-hero {
-    min-height: 340px;
+    height: 340px;
   }
 }
-
-
-
-
 
 
 
@@ -810,7 +794,6 @@ body.theme-dark footer {
     border-top: 1px solid #404040;
 }
 @media (min-width: 1201px){
- /* סידור הפוטר ל-4 טורים לפי המצגת */
     .footer-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 40px;
