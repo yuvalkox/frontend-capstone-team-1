@@ -99,7 +99,101 @@ if (navToggle && nav) {
   });
 }
 
+// רדיו של קטגוריות
+const catAll = document.getElementById("cat-all");
+const catStarters = document.getElementById("cat-starters");
+const catSalads = document.getElementById("cat-salads");
+const catPizza = document.getElementById("cat-pizza");
+const catDesserts = document.getElementById("cat-desserts");
+const catDrinks = document.getElementById("cat-drinks");
 
+// סקשנים
+const secStarters = document.getElementById("section-starters");
+const secSalads = document.getElementById("section-salads");
+const secPizza = document.getElementById("section-pizza");
+const secDesserts = document.getElementById("section-desserts");
+const secDrinks = document.getElementById("section-drinks");
+
+const sections = [secStarters, secSalads, secPizza, secDesserts, secDrinks];
+
+// טבעוני
+const veganToggle = document.getElementById("filter-vegan");
+
+// כל המנות
+const items = document.querySelectorAll("article.menu-item");
+
+function showAllSections() {
+  for (let i = 0; i < sections.length; i++) {
+    if (sections[i]) sections[i].style.display = "";
+  }
+}
+
+function showOnlySection(sectionToShow) {
+  for (let i = 0; i < sections.length; i++) {
+    if (sections[i]) {
+      if (sections[i] === sectionToShow) {
+        sections[i].style.display = "";
+      } else {
+        sections[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function applyVeganFilter() {
+  let veganOnly = false;
+  if (veganToggle) {
+    veganOnly = veganToggle.checked;
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+
+    const parentSection = item.closest("section");
+
+    let sectionHidden = false;
+    if (parentSection && parentSection.style.display === "none") {
+      sectionHidden = true;
+    }
+
+    if (sectionHidden) {
+      item.style.display = "none";
+    } else {
+      const isVegan = (item.getAttribute("data-vegan") === "true");
+
+      if (veganOnly === false) {
+        item.style.display = "";
+      } else {
+        if (isVegan === true) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      }
+    }
+  }
+}
+
+
+function applyFilters() {
+  if (catAll && catAll.checked) showAllSections();
+  else if (catStarters && catStarters.checked) showOnlySection(secStarters);
+  else if (catSalads && catSalads.checked) showOnlySection(secSalads);
+  else if (catPizza && catPizza.checked) showOnlySection(secPizza);
+  else if (catDesserts && catDesserts.checked) showOnlySection(secDesserts);
+  else if (catDrinks && catDrinks.checked) showOnlySection(secDrinks);
+
+  applyVeganFilter();
+}
+
+const radios = document.querySelectorAll('input[name="cat"]');
+for (let i = 0; i < radios.length; i++) {
+  radios[i].addEventListener("change", applyFilters);
+}
+
+if (veganToggle) veganToggle.addEventListener("change", applyFilters);
+
+applyFilters();
 
 
 // פוטר 
