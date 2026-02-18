@@ -3,14 +3,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'assistant';
 }
 
 body {
     background-color: #f9f3ee;
     line-height: 1.5;
     color: #333;
-    overflow-x: hidden;
-    font-family: 'assistant';
+    overflow-x: hidden;   
 }
 
 
@@ -241,7 +241,7 @@ body.theme-dark #nav a{
 
 
 /* עיצוה NAVBAR למסך גדול */
-@media (min-width: 1024px){
+@media (min-width: 1021px){
   nav{
     padding: 8px 14px;      
     gap: 12px;
@@ -455,7 +455,7 @@ body.theme-dark #quantity, body.theme-dark #other-info {
 
 
 /* --- התאמה למסכים גדולים--- */
-@media (min-width: 600px) {
+@media (min-width: 481px) {
     .product-page {
         padding: 30px;
     }
@@ -542,10 +542,33 @@ body.theme-dark footer {
     background: rgba(89, 22, 26, 1);
     border-top: 1px solid #404040;
 }
-@media (min-width: 1201px){
- /* סידור הפוטר ל-4 טורים לפי המצגת */
+
+@media (min-width: 481px) {  
     .footer-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+ }
+    
+@media (min-width: 1201px){ 
+
+    footer {
+        padding: 50px 20px 0;
+    }
+
+    .footer-grid {
         gap: 40px;
     }
-  }
+
+    footer h3, footer h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    footer p {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    
+
+}

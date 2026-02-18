@@ -645,12 +645,12 @@ body.theme-dark{
 }
 
 body.theme-dark .main-container section{
-  background: rgba(21, 26, 32, 0.68);
+  background-color:rgba(26, 5, 6, 0.5);
   border-color: rgba(255,255,255,0.14);
 }
 
 body.theme-dark h2{
-  color: rgba(255, 220, 220, 0.92);
+  color: white;
 }
 
 body.theme-dark .restaurant-story p,
@@ -661,7 +661,7 @@ body.theme-dark .contact-section p{
 
 body.theme-dark .bio-box{
   color: rgba(243,244,246,0.90) ;
-  border-right-color: rgba(255, 220, 220, 0.85);
+  border-right-color: white;
 }
 
 body.theme-dark .form-group label{
@@ -681,17 +681,17 @@ body.theme-dark .form-group textarea::placeholder{
 }
 
 body.theme-dark .submit-btn{
-  background: rgba(255,220,220,0.92);
+  background: white;
   color: rgba(89,22,26,1);
 }
 
 body.theme-dark .field-error{
-  color: rgba(255,220,220,0.92);
+  color: white;
 }
 
 body.theme-dark .contact-form input.invalid,
 body.theme-dark .contact-form textarea.invalid{
-  border-color: rgba(255,220,220,0.92);
+  border-color: white;
 }
 
 body.theme-dark .yoli-modal__card{
@@ -704,7 +704,7 @@ body.theme-dark .yoli-modal__text{
 }
 
 body.theme-dark .yoli-modal__btn{
-  background: rgba(255,220,220,0.92);
+  background: white;
   color: rgba(89,22,26,1);
 }
 
