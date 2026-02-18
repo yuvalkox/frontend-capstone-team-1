@@ -191,7 +191,7 @@ addToCartBtn.addEventListener('click', function () {
     name: 'סלט יווני מרענן',
     price: BASE_PRICE + extrasTotal,
     quantity: quantity,
-    image: '/תמונות/סלט יווני.png',
+    image: 'תמונות/סלט יווני.png',
     notes: notes,
     removedItems: removedItems,
     extras: extras
