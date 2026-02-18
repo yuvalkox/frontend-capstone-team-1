@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>YOLI - Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Checkout.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Rubik+Doodle+Shadow&family=Secular+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!--ניווט עליון-->
+ <header>
+        <nav aria-label="ניווט ראשי באתר">
+            <div class="nav-center">
+                <img id="LOGO" src="./תמונות/לוגו.png" alt="לוגו YOLI" loading="lazy">
+                </a>
+            </div>
+            <!--המבורגר-->
+            <div class="nav-right">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="פתיחה וסגירה של התפריט">
+                <label for="nav-toggle" class="hamburger" aria-label="פתיחת תפריט" title="תפריט">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+                <!--רשימת קישורים-->
+                <ul id="nav" class="nav" aria-label="עמודים ראשיים">
+                    <li><a id="home-link" href="/Home.html" title="מעבר לדף הבית">דף הבית</a></li>
+                    <li><a id="about-link" href="/Odot.html#top" title="מידע עלינו">אודות</a></li>
+                    <li><a id="menu-link" href="/Menu.html" title="צפייה בתפריט">תפריט</a></li>
+                    <li><a id="reserve-link" href="/TableBooking.html" title="הזמנת מקום">הזמן מקום</a></li>
+                    <li><a id="contact-link" href="/Odot.html#contact" title="יצירת קשר">צור קשר</a></li>
+                </ul>
+            </div>
+            <!--כפתורים-->
+            <div class="nav-left">
+                <div class="nav-actions">
+                    <a id="cart-link" class="cart-btn" href="/Checkout.html" aria-label="צפייה בעגלה" title="עגלה">
+                        <img src="./תמונות/עגלה.png" alt="" loading="lazy">
+                    </a>
+
+                    <button id="dark-mode-toggle" aria-label="החלפת מצב תצוגה">
+                        <img class="dm-icon dm-light" src="./תמונות/מצב לילה.png" alt="מצב לילה" loading="lazy">
+                    </button>
+
+                    <button type="button" id="light-mode-toggle" aria-label="הפעלת מצב בהיר" title="מצב בהיר">
+                        <img src="./תמונות/שמש.svg" alt="מצב יום" loading="lazy">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+  <div class="container">
+
+    <h1 class="page-title">השלמת הזמנה</h1>
+
+    <!-- Cart Section -->
+    <div class="cart-section" id="cartSection">
+      <h2>ההזמנה שלך</h2>
+
+      <div id="cartItems"></div>
+
+      <div class="totals-section" id="totalsSection">
+        <div class="total-row">
+          <span>סכום ביניים:</span>
+          <span id="subtotal">₪0</span>
+        </div>
+
+        <div class="total-row" id="deliveryFeeRow">
+          <span>דמי משלוח:</span>
+          <span id="deliveryFee">₪0</span>
+        </div>
+
+        <div class="total-row final">
+          <span>סה"כ לתשלום:</span>
+          <span class="amount" id="total">₪0</span>
+        </div>
+      </div>
+
+      <button id="toPayment" class="submit-button">
+        מעבר לתשלום <i class="bi bi-arrow-left"></i>
+      </button>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-section" id="paymentSection">
+
+      <div class="step-title">
+        <span class="step">1</span>
+        <h2>פרטי תשלום ומשלוח</h2>
+      </div>
+
+      <div class="delivery-options">
+        <label>אופן קבלת ההזמנה</label>
+
+        <div class="delivery-buttons">
+          <div id="deliveryBtn" class="delivery-btn selected">
+            <i class="bi bi-truck"></i>
+            <div class="title">משלוח עד הבית</div>
+            <div class="subtitle">₪15 דמי משלוח</div>
+          </div>
+
+          <div id="pickupBtn" class="delivery-btn">
+            <i class="bi bi-shop"></i>
+            <div class="title">איסוף עצמי</div>
+            <div class="subtitle">ללא תשלום</div>
+          </div>
+        </div>
+      </div>
+
+      <form id="checkoutForm">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>שם מלא *</label>
+            <input type="text" name="name" placeholder="הזן את שמך המלא" required>
+          </div>
+
+          <div class="form-group">
+            <label>טלפון *</label>
+            <input type="tel" name="phone" id="phone" placeholder="050-1234567" maxlength="10" required>
+            <span id="phoneError" class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group" id="addressField">
+          <label>כתובת למשלוח *</label>
+          <input type="text" name="address" placeholder="רחוב, מספר בית, עיר" required>
+        </div>
+
+        <div class="form-group">
+          <label>הערות</label>
+          <textarea name="notes" placeholder="הוספות, הערות מיוחדות..."></textarea>
+        </div>
+
+        <div class="step-title">
+          <span class="step">2</span>
+          <h3>פרטי כרטיס אשראי</h3>
+        </div>
+
+        <div class="form-group">
+          <label>מספר כרטיס *</label>
+          <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+          <span id="cardError" class="field-error"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>תוקף *</label>
+            <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+            <span id="expiryError" class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label>CVV *</label>
+            <input type="text" id="cvv" name="cvv" placeholder="XXX" maxlength="3" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>שם בעל הכרטיס *</label>
+          <input type="text" id="cardName" name="cardName" placeholder="כפי שמופיע בכרטיס" required>
+        </div>
+
+        <div class="form-group">
+          <label>תעודת זהות *</label>
+          <input type="text" id="idNumber" name="idNumber" placeholder="הזן מספר תעודת זהות" maxlength="9" required>
+          <span id="idError" class="field-error"></span>
+        </div>
+
+        <button type="submit" class="submit-button" id="submitBtn">
+          שלם ₪0
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal-overlay">
+    <div class="modal-content">
+      <p id="modalMessage"></p>
+      <input type="text" id="modalInput" class="modal-input">
+
+      <div class="modal-buttons">
+        <button id="modalCancel" class="btn-secondary">ביטול</button>
+        <button id="modalConfirm" class="btn-success">אישור</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Section -->
+  <section id="successSection" class="success-section">
+    <div class="success-box">
+      <div class="success-icon">
+        <i class="bi bi-check2-all"></i>
+      </div>
+
+      <h2>התשלום התקבל בהצלחה!</h2>
+      <p>תודה, <strong id="confName"></strong>! ההזמנה שלך יוצאת להכנה.</p>
+
+      <div class="summary-details">
+        <p><strong>מספר הזמנה:</strong> #<span id="confOrderNum"></span></p>
+        <p><strong>שיטה:</strong> <span id="confType"></span></p>
+        <p><strong>זמן הגעה משוער:</strong> <span id="confTime"></span></p>
+      </div>
+
+      <p class="status-msg">סטטוס: המטבח קיבל את ההזמנה <i class="bi bi-clock-history"></i></p>
+
+      <button id="finishOrder" class="btn-primary" onclick="window.location.reload()">
+        הזמנה חדשה
+      </button>
+    </div>
+  </section>
+
+  <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>YOLI</h3>
+                <p>חוויה איטלקית כשרה בלב תל אביב</p>
+            </div>
+            <div>
+                <h4>צור קשר</h4>
+                <p>הרצל 123, תל אביב</p>
+                <p>03-1234567</p>
+                <p>info@yoli-restaurant.co.il</p>
+            </div>
+            <div>
+                <h4>שעות פתיחה</h4>
+                <p>ראשון–חמישי: 23:00-12:00</p>
+                <p>שישי: סגור</p>
+                <p>שבת: 00:00-20:00</p>
+            </div>
+            <div>
+                <h4>עקבו אחרינו</h4>
+                <div class="footer-social">
+                    <a href="#" aria-label="עקבו אחרינו באינסטגרם"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="עקבו אחרינו בפייסבוק"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © YOLI - כל הזכויות שמורות
+        </div>
+    </footer>
+
+<script src="Checkout.js"></script>
+</body>
+</html>

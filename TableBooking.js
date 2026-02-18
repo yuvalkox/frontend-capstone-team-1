@@ -1,7 +1,24 @@
+  
+    // הגדרות וקונפיגורציה
+    const restaurantConfig = {
+        "openingHours": {
+            "weekday": ["12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"],
+            "saturday": ["20:00", "20:30", "21:00", "21:30", "22:00", "23:00"],
+            "closedDays": [5] // שישי סגור
+        }
+    };
+
 // הגדרת משתנים למצב לילה/יום
 const body = document.body;
 const darkBtn = document.getElementById("dark-mode-toggle");
 const lightBtn = document.getElementById("light-mode-toggle");
+
+const form = document.getElementById('reservationForm');
+const dateInput = document.getElementById('date');
+const timeSelect = document.getElementById('time');
+const phoneInput = document.getElementById('phone');
+const phoneError = document.getElementById('phoneError');
+
 
 // 
 const savedTheme = localStorage.getItem("yoli-theme");
