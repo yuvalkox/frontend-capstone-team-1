@@ -1,4 +1,3 @@
-
 // הגדרת משתנים למצב לילה/יום
 const body = document.body;
 const darkBtn = document.getElementById("dark-mode-toggle");
@@ -98,9 +97,6 @@ if (navToggle && nav) {
     }
   });
 }
-
-
-
 
 // פוטר 
 const light = '#cbcbcaff'; 
