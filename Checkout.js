@@ -171,7 +171,7 @@ function renderCart() {
             </div>
             <h2>העגלה ריקה</h2>
             <p>הוסיפו מנות מהתפריט שלנו</p>
-            <a href="index.html" class="btn-primary">חזרה לתפריט</a>
+            <a href="Menu.html" class="btn-primary">חזרה לתפריט</a>
         </div>`;
         if (totalsSection) totalsSection.style.display = 'none';
         if (toPaymentBtn) toPaymentBtn.style.display = 'none';
