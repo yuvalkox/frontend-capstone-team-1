@@ -405,6 +405,7 @@ body {
   color: white;
 }
 
+/* עיצוב סקשן של קטגוריות התפריט */
 .menu-section { 
   display: block; 
   margin-top: 16px;
@@ -417,6 +418,57 @@ body {
   grid-template-columns: 1fr;
   gap: 12px;
    
+}
+/* עיצוב קישור לסלט יווני בתפריט */
+a.menu-link{
+  color: inherit;
+  text-decoration: none;
+}
+.menu-section a.menu-link{
+  display: block;
+  width: 100%;
+}
+
+.menu-section a.menu-link:hover article.menu-item,
+.menu-section a.menu-link:focus-visible article.menu-item{
+  background: rgba(139, 44, 48, 0.60);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+.menu-section a.menu-link:focus-visible{
+  outline: 3px solid rgba(139, 44, 48, 0.35);
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+.menu-section a.menu-link{
+  cursor: pointer;
+}
+.menu-section a.menu-link{
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+.menu-section .menu-link{
+  display: block;
+  width: 100%;
+}
+
+.menu-section .menu-link > article.menu-item{
+  height: 100%;
+}
+
+.menu-section > a.menu-link{
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden; 
+}
+
+.menu-section > a.menu-link > article.menu-item{
+  width: 100%;
 }
 
 #cat-starters:checked ~ #section-starters,
@@ -538,6 +590,116 @@ article.menu-item .menu-item__content {
   border-color: rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
+
+
+/* =========================
+   DARK MODE — MENU PAGE
+   עובד כשיש: body.theme-dark
+   ========================= */
+
+/* רקע כללי + טקסט */
+body.theme-dark{
+  background: rgba(21, 26, 32, 1);   /* כהה כמו בעמוד האחר */
+  color: #f3f4f6;
+}
+
+/* קונטיינר ראשי */
+body.theme-dark #main-content{
+  color: #f3f4f6;
+}
+
+/* Hero – להשאיר הטקסט ברור */
+body.theme-dark .menu-hero{
+  border-color: rgba(255,255,255,0.12);
+}
+body.theme-dark .menu-hero__bg{
+  filter: brightness(0.85) contrast(1.05);
+}
+body.theme-dark .menu-hero #menu-title{
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.9);
+}
+
+/* פילטרים */
+body.theme-dark .menu-filters{
+  background: rgba(89, 22, 26, 0.55);      /* בורדו שקוף */
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* כדורי סינון */
+body.theme-dark .filter-pill{
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.14);
+  color: #f3f4f6;
+}
+body.theme-dark .filter-pill:hover{
+  background: rgba(255,255,255,0.14);
+}
+
+/* מצב checked (קטגוריה נבחרת) */
+body.theme-dark .filter-input:checked + .filter-pill{
+  background: rgba(139, 44, 48, 1);         /* בורדו מלא */
+  border-color: rgba(255,255,255,0.18);
+  color: #f3f4f6;
+}
+
+/* פוקוס נגיש */
+body.theme-dark .filter-input:focus-visible + .filter-pill{
+  outline: 3px solid rgba(255,255,255,0.22);
+  outline-offset: 3px;
+}
+
+/* סקשנים (מסגרות של קטגוריות) */
+body.theme-dark .menu-section{
+  background: rgba(89, 22, 26, 0.35);       /* בורדו כהה עדין */
+  border-color: rgba(255,255,255,0.12);
+}
+body.theme-dark .menu-section > h2{
+  color: #f3f4f6;
+}
+
+/* כרטיס מנה */
+body.theme-dark .menu-section article,
+body.theme-dark article.menu-item{
+  background: rgba(21, 26, 32, 0.82);       /* כהה */
+  border-color: rgba(255,255,255,0.10);
+}
+
+/* טקסטים בכרטיס */
+body.theme-dark .menu-item__content h3{
+  color: #f3f4f6;
+}
+body.theme-dark .menu-section article p{
+  color: rgba(243,244,246,0.82);
+}
+
+/* תג מחיר */
+body.theme-dark .price,
+body.theme-dark .menu-section article p:last-child{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.16);
+  color: #f3f4f6;
+}
+
+/* Hover על כרטיס */
+body.theme-dark .menu-section article:hover{
+  background: rgba(139, 44, 48, 0.55);      /* בורדו הובר */
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* קישור למנה (סלט יווני) – פוקוס ברור במצב לילה */
+body.theme-dark .menu-section a.menu-link:focus-visible{
+  outline: 3px solid rgba(255,255,255,0.28);
+  outline-offset: 4px;
+}
+
+/* אייקון טבעוני – שיישב טוב גם על רקע כהה */
+body.theme-dark .vegan-icon{
+  background: rgba(34,197,94,0.18);
+  border-color: rgba(34,197,94,0.35);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
 @media (min-width: 700px) {
   main#main-content {
     padding: 24px 16px 60px;
