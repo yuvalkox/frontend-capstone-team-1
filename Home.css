@@ -328,7 +328,7 @@ h1 {
 
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   max-width: 1500px;
   margin: auto;
@@ -440,6 +440,9 @@ body.theme-dark footer {
 }
 
 @media (min-width: 481px) {  
+   .images {
+    grid-template-columns: repeat(2, 1fr);
+  }
     .footer-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
@@ -482,6 +485,11 @@ body.theme-dark footer {
     background: transparent;
     border-bottom: none;
   }
+
+  .images {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   footer {
         padding: 50px 20px 0;
     }
