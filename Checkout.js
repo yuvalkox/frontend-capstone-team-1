@@ -468,7 +468,7 @@ function closeModal() {
 
 function editItem(index) {
     const item = cart[index];
-    window.location.href = `LIHI.html?id=${encodeURIComponent(item.id || item.name)}&editMode=true&cartIndex=${index}`;
+    window.location.href = `SingelItem.html?id=${encodeURIComponent(item.id || item.name)}&editMode=true&cartIndex=${index}`;
 }
 
 function setupJsEffects() {
