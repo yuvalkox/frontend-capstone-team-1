@@ -23,5 +23,6 @@
 4. במובייל ניתן לפתוח את התפריט בעזרת כפתור ההמבורגר.
 5. (dark mode) ניתן להחליף מצב תצוגה.
 ## קישור לאתר חי
+https://yuvalkox.github.io/frontend-capstone-team-1/
 =======
 >>>>>>> origin/main
